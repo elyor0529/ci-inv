@@ -1,2 +1,4 @@
 # ci-inv
-Madinat Jumeirah
+Inventory Demo
+
+Madinat Jumeirah Inventory manager
