@@ -69,6 +69,11 @@
             transition: .3s;
         }
 
+        .paging-3d {
+            -webkit-box-shadow: 6px 3px 71px -2px rgba(0, 0, 0, 1);
+            -moz-box-shadow: 6px 3px 71px -2px rgba(0, 0, 0, 1);
+            box-shadow: 6px 3px 71px -2px rgba(0, 0, 0, 1);
+        }
     </style>
 </head>
 <body>
@@ -90,14 +95,15 @@
         <ul class="nav navbar-right top-nav">
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                            class="fa fa-user"></i> Sam <b class="caret"></b></a>
+                            class="fa fa-user"></i> <?php echo $_SESSION["user_name"]; ?> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li>
                         <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
                     </li>
                     <li class="divider"></li>
                     <li>
-                        <a href="<?php echo base_url("/main/logout") ?>"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        <a href="<?php echo base_url("/main/logout") ?>"><i class="fa fa-fw fa-power-off"></i> Log
+                            Out</a>
                     </li>
                 </ul>
             </li>

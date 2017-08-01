@@ -7,21 +7,18 @@ class Inventory extends \core\MY_Controller
     public function __construct()
     {
         parent:: __construct();
-        $this->load->library("form_validation");
+
         $this->load->library("pagination");
     }
 
     public function index()
     {
-        //pager
+        $data["title"] = "Store inventory";
         $config['base_url'] = base_url() . 'inventory/index/';
-        $config['total_rows'] = $this->mci->total();
+        $config['total_rows'] = $this->inventory->total_records();
         $config['per_page'] = 5;
         $config["uri_segment"] = 3;
-        //config for bootstrap pagination class integration
-        $config['full_tag_open'] = '<ul class="pagination" style="-webkit-box-shadow: 6px 3px 71px -2px rgba(0,0,0,1);
-																  -moz-box-shadow: 6px 3px 71px -2px rgba(0,0,0,1);
-																  box-shadow: 6px 3px 71px -2px rgba(0,0,0,1);">';
+        $config['full_tag_open'] = '<ul class="pagination paging-3d">';
         $config['full_tag_close'] = '</ul>';
         $config['first_link'] = false;
         $config['last_link'] = false;
@@ -39,18 +36,14 @@ class Inventory extends \core\MY_Controller
         $config['cur_tag_close'] = '</a></li>';
         $config['num_tag_open'] = '<li>';
         $config['num_tag_close'] = '</li>';
-
         $this->pagination->initialize($config);
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-
-        $data['results'] = $this->mci->list($config["per_page"], $page);
         $data["pager"] = $this->pagination->create_links();
-
-        $data["title"] = "Store inventory";
-
+        $data['results'] = $this->inventory->paging_entities($config["per_page"], $page);
+        $data['types'] = $this->inventorytype->get_entities();
+        $data['statuses'] = $this->inventorystatus->get_entities();
 
         $this->session->set_flashdata('info', 'Data is loading...');
-
         $this->renderView("inventory", "index", $data);
     }
 
@@ -60,13 +53,16 @@ class Inventory extends \core\MY_Controller
 
         $this->session->set_flashdata('warning', 'Please enter required fields...');
 
+        $data['types'] = $this->inventorytype->get_entities();
+        $data['statuses'] = $this->inventorystatus->get_entities();
+
         $this->renderView("inventory", "add", $data);
     }
 
     public function save()
     {
-        if ($this->input->post("save")) {
-            $this->mci->add();
+        if (isset($_REQUEST["save"])) {
+            $this->inventory->insert_entity();
             $this->session->set_flashdata('success', 'Saved successfully ...');
 
             redirect("inventory/index");
@@ -85,26 +81,26 @@ class Inventory extends \core\MY_Controller
             redirect("main");
         }
 
-        $data = $this->mci->edit($id);
-
-        $data["row"] = $data[0];
+        $data['title'] = "Edit Items";
+        $data["row"] = $this->inventory->get_entity($id);
+        $data['types'] = $this->inventorytype->get_entities();
+        $data['statuses'] = $this->inventorystatus->get_entities();
 
         $this->session->set_flashdata('success', 'Edited successfully ...');
-        $data['title'] = "Edit Items";
-
         $this->renderView("inventory", "edit", $data);
     }
 
     public function update()
     {
-        if ($this->input->post('edit')) {
-            $id = $this->input->post('id');
-            $this->mci->update($id);
+        $id =$_REQUEST['id'];
+
+        if (isset($_REQUEST['edit'])) {
+
+            $this->inventory->update_entity($id);
 
             redirect("inventory/index");
         } else {
 
-            $id = $this->input->post('id');
             $this->session->set_flashdata('error', 'Not validate ...');
 
             redirect("inventory/edit" . $id);
@@ -114,7 +110,7 @@ class Inventory extends \core\MY_Controller
     public function delete()
     {
         $id = $this->uri->segment(3);
-        $this->mci->delete($id);
+        $this->inventory->delete_entity($id);
         $this->session->set_flashdata('success', 'Deleted successfully ...');
 
         redirect("inventory/index");

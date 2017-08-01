@@ -12,7 +12,7 @@
           integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css"
           href="https://uxsolutions.github.io/bootstrap-datepicker/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
-
+    <link rel="icon" type="decor  ated-typography-set-2-number-7-16-244412.png" href="<?php echo base_url("/assets/") ?>favicon/logo%202.png">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -20,15 +20,23 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style>
-        .container {
+        body{
+            background-image: url("../assets/favicon/mj1.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+        .container{
             width: 300px;
             border: 2px;
             margin-top: 100px;
             box-sizing: border-box;
             display: block;
             box-shadow: 3px 4px 0px rgba(0, 0, 0, .3),
-            0px 3px 4px rgba(0, 0, 0, .5),
-            3px 0px 4px rgba(0, 0, 0, .5);
+            0px 6px 9px rgba(0, 0, 0, .5),
+            8px 0px 4px rgba(0, 0, 0, .5),
+            0px 8px 8px rgba(0, 0, 0, .5),
+            9px 0px 7px rgba(0, 0, 0, .5);
         }
 
         .form-signin-heading,
@@ -47,8 +55,8 @@
 
 <div class="container">
     <form class="form-signin" method="post" action="<?php echo site_url('main/login_validation'); ?>">
-        <h2 class="form-signin-heading" style="text-align:center; text-shadow:3px 2px 4px rgba(0,0,0,.5);">MJ
-            Inventory</h2>
+        <h2 class="form-signin-heading" style="text-align:center; text-shadow:3px 2px 4px rgba(0,0,0,.5);">
+            <image src="../assets/favicon/logo%202.png" alt="logo" width="40px">MJ Inventory</h2>
 
         <?php if (isset($_SESSION["error"])) { ?>
             <div class="alert alert-danger alert-dismissible fade in" role=alert>

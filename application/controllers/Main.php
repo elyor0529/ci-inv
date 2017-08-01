@@ -4,16 +4,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Main extends \core\MY_Controller
 {
 
+    public function __construct()
+    {
+        parent:: __construct();
+    }
+
+
     public function index()
     {
-        $usr = $this->session->userdata("user");
+        $usr = $this->session->userdata("username");
 
         if (isset($usr)) {
             redirect("/dashboard/index");
+        } else {
+
+            redirect("/main/login");
         }
 
-        redirect("/main/login");
     }
+
 
     public function login()
     {
@@ -30,11 +39,11 @@ class Main extends \core\MY_Controller
 
         if (isset($username) && isset($password)) {
 
-            $this->load->model("mci");
-            if ($this->mci->can_login($username, $password)) {
+            if ($this->user->authorize($username, $password)) {
 
-                $session_data = array("username" => $username);
-                $this->session->set_userdata($session_data);
+                $user = $this->user->get_entity($username);
+
+                $this->session->set_userdata(array('user_id' => $user->id, 'user_name' => $user->full_name));
 
                 redirect("main/index");
             } else {
@@ -47,7 +56,8 @@ class Main extends \core\MY_Controller
 
     public function logout()
     {
-        $this->session->unset_userdata("user");
+        $this->session->unset_userdata("user_id");
+        $this->session->unset_userdata("user_name");
 
         redirect("main/login");
     }

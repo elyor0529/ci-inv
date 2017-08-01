@@ -15,7 +15,7 @@
         <th>Size</th>
         <th>Status</th>
         <th>Date</th>
-        <th></th>
+        <th>Action</th>
     </tr>
     </thead>
     <tbody>
@@ -33,10 +33,10 @@
             <td><?php echo $row->status_id ?></td>
             <td><?php echo date("d/m/Y"); ?></td>
             <td class="text-center">
-                <a href="<?php echo site_url('main/edit/' . $row->id); ?>"
+                <a href="<?php echo site_url('inventory/edit/' . $row->id); ?>"
                    class="btn btn-success"><span class="glyphicon glyphicon-edit"
                                                  aria-hidden="true"></span></a>
-                <a href="<?php echo site_url('main/del/' . $row->id); ?>" class="btn btn-danger"
+                <a href="<?php echo site_url('inventory/delete/' . $row->id); ?>" class="btn btn-danger"
                    onclick="return confirm('Are you sure would you like delete this?')"><span
                             class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
             </td>
