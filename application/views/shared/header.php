@@ -53,15 +53,41 @@
             -moz-box-shadow: 6px 3px 71px -2px rgba(0, 0, 0, 1);
             box-shadow: 6px 3px 71px -2px rgba(0, 0, 0, 1);
         }
-        .logo{
-            margin-top:10px;
-            margin-left:10px;
-            float:left;
+
+        .logo {
+            margin-top: 10px;
+            margin-left: 10px;
+            float: left;
         }
-        .logoMJ{
-            text-shadow: 0px 3px 1px rgba(0,0,0,.4),
-                         2px 0px 2px rgba(0,0,0,.4),
-                         0px 3px 0px rgba(0,0,0,.2)!important;
+
+        .logoMJ {
+            text-shadow: 0px 3px 1px rgba(0, 0, 0, .4),
+            2px 0px 2px rgba(0, 0, 0, .4),
+            0px 3px 0px rgba(0, 0, 0, .2) !important;
+        }
+
+        #status-list li {
+            text-decoration: none;
+            list-style-type: none;
+            padding-top: 10px;
+        }
+
+        #status-list li a:hover {
+            text-decoration: none;
+            color: #fff;
+            background: transparent !important;
+        }
+
+        #type-list li {
+            text-decoration: none;
+            list-style-type: none;
+            padding-top: 10px;
+        }
+
+        #type-list li a:hover {
+            text-decoration: none;
+            color: #fff;
+            background: transparent !important;
         }
 
 
@@ -81,7 +107,7 @@
                 <span class="icon-bar"></span>
             </button>
             <image class="logo" src="<?php echo base_url("/assets/") ?>favicon/logo%202.png" alt="logo" width="30px">
-            <a width="500px" class="navbar-brand logoMJ" href="<?php echo base_url("/") ?>"> Madinat Jumeirah</a>
+                <a width="500px" class="navbar-brand logoMJ" href="<?php echo base_url("/") ?>"> Madinat Jumeirah</a>
         </div>
         <!-- Top Menu Items -->
         <ul class="nav navbar-right top-nav">
@@ -128,17 +154,43 @@
                         Inventories</a>
                 </li>
                 <li>
-                    <a href="javascript:;" class="dropdown" data-toggle="collapse" data-target="#demo"><i
-                                class="fa fa-fw fa-file fa-2x"></i>Reports<i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="demo" class="collapse">
+                    <a href="javascript:;" class="dropdown" data-toggle="collapse" data-target="#report-list"><i
+                                class="fa fa-fw fa-files-o fa-2x"></i>Reports<i class="fa fa-fw fa-caret-down"></i></a>
+                    <ul id="report-list" class="collapse">
                         <li>
-                            <a href="<?php echo base_url("/report/index?status=1") ?>">OLD</a>
+                            <a href="javascript:;" class="dropdown" data-toggle="collapse" data-target="#status-list">
+                                <i class="fa fa-fw fa-map-marker"></i> By Status <i class="fa fa-fw fa-caret-down"></i>
+                            </a>
+                            <ul id="status-list" class="collapse">
+                                <?php
+                                foreach ($statuses as $status) {
+                                    ?>
+                                    <li>
+                                        <a href="<?php echo base_url("/dashboard/report?status=" . $status->id) ?>"
+                                           class="text-muted ">
+                                            <i class="fa fa-fw fa-file-archive-o"></i> <?php echo $status->name; ?>
+                                        </a>
+                                    </li>
+                                <?php } ?>
+                            </ul>
                         </li>
+
                         <li>
-                            <a href="<?php echo base_url("/report/index?status=2") ?>">NEW</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo base_url("/report/index?status=3") ?>">FADA</a>
+                            <a href="javascript:;" class="dropdown" data-toggle="collapse" data-target="#type-list">
+                                <i class="fa fa-fw fa-map-marker"></i>By Type <i class="fa fa-fw fa-caret-down"></i>
+                            </a>
+                            <ul id="type-list" class="collapse">
+                                <?php
+                                foreach ($types as $type) {
+                                    ?>
+                                    <li>
+                                        <a href="<?php echo base_url("/dashboard/report?type=" . $type->id) ?>"
+                                           class="text-muted ">
+                                            <i class="fa fa-fw fa-file-archive-o"></i> <?php echo $type->name; ?>
+                                        </a>
+                                    </li>
+                                <?php } ?>
+                            </ul>
                         </li>
                     </ul>
                 </li>

@@ -12,7 +12,7 @@
                     </div>
                 </div>
             </div>
-            <a href="#">
+            <a href="<?php echo base_url('user/index'); ?>">
                 <div class="panel-footer">
                     <span class="pull-left">View Details</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -30,11 +30,11 @@
                     </div>
                     <div class="col-xs-9 text-right">
                         <div class="huge">12</div>
-                        <div>Updates!</div>
+                        <div>Updates</div>
                     </div>
                 </div>
             </div>
-            <a href="#">
+            <a href="<?php echo base_url('inventory/index'); ?>">
                 <div class="panel-footer">
                     <span class="pull-left">View Details</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -56,7 +56,7 @@
                     </div>
                 </div>
             </div>
-            <a href="#">
+            <a href="<?php echo base_url('type/index'); ?>">
                 <div class="panel-footer">
                     <span class="pull-left">View Details</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -78,7 +78,7 @@
                     </div>
                 </div>
             </div>
-            <a href="#">
+            <a href="<?php echo base_url('user/index'); ?>">
                 <div class="panel-footer">
                     <span class="pull-left">View Details</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

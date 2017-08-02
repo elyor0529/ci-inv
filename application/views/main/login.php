@@ -22,7 +22,7 @@
     <style>
         body{
             background-image: url("../assets/favicon/mj1.jpg");
-            background-repeat: no-repeat;
+            background-repeat: repeat;
             background-size: cover;
 
         }

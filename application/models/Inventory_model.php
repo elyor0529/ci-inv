@@ -28,6 +28,40 @@ class Inventory_model extends CI_Model
         return $rows;
     }
 
+    public function filter_status_records($status)
+    {
+        $this->db->where('status_id', $status);
+        $rows = $this->db->get(SELF::ENT_NAME);
+
+        return $rows->num_rows();
+    }
+
+    public function get_entities_by_status($limit, $offset, $status)
+    {
+        $this->db->where('status_id', $status);
+        $this->db->order_by('id', 'DESC');
+        $rows = $this->db->get(SELF::ENT_NAME, $limit, $offset)->result();
+
+        return $rows;
+    }
+
+    public function filter_type_records($type)
+    {
+        $this->db->where('type_id', $type);
+        $rows = $this->db->get(SELF::ENT_NAME);
+
+        return $rows->num_rows();
+    }
+
+    public function get_entities_by_type($limit, $offset, $type)
+    {
+        $this->db->where('type_id', $type);
+        $this->db->order_by('id', 'DESC');
+        $rows = $this->db->get(SELF::ENT_NAME, $limit, $offset)->result();
+
+        return $rows;
+    }
+
     public function total_records()
     {
         $rows = $this->db->get(SELF::ENT_NAME);
@@ -61,6 +95,7 @@ class Inventory_model extends CI_Model
     public function update_entity($id)
     {
 
+        $this->id = $id;
         $this->user_id = $_SESSION["user_id"];
         $this->type_id = $_REQUEST["type_id"];
         $this->name = $_REQUEST["name"];
@@ -80,5 +115,6 @@ class Inventory_model extends CI_Model
         $this->db->where("id", $id);
         $this->db->delete(SELF::ENT_NAME);
     }
+
 
 }

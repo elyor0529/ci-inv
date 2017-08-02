@@ -19,4 +19,12 @@ class InventoryStatus_model extends CI_Model
         return $rows;
     }
 
+    public function get_entity($id)
+    {
+        $this->db->where('id', $id);
+        $rows = $this->db->get(SELF::ENT_NAME)->result();
+
+        return $rows[0];
+    }
+
 }
