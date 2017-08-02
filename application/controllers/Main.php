@@ -12,9 +12,7 @@ class Main extends \core\MY_Controller
 
     public function index()
     {
-        $usr = $this->session->userdata("username");
-
-        if (isset($usr)) {
+        if ($this->session->has_userdata("logged_in")) {
             redirect("/dashboard/index");
         } else {
 
@@ -42,8 +40,12 @@ class Main extends \core\MY_Controller
             if ($this->user->authorize($username, $password)) {
 
                 $user = $this->user->get_entity($username);
-
-                $this->session->set_userdata(array('user_id' => $user->id, 'user_name' => $user->full_name));
+                $data = array(
+                    'user_id' => $user->id,
+                    'user_name' => $user->full_name,
+                    'logged_in' => TRUE
+                );
+                $this->session->set_userdata($data);
 
                 redirect("main/index");
             } else {
@@ -56,8 +58,11 @@ class Main extends \core\MY_Controller
 
     public function logout()
     {
-        $this->session->unset_userdata("user_id");
-        $this->session->unset_userdata("user_name");
+        unset(
+            $_SESSION['user_id'],
+            $_SESSION['user_name'],
+            $_SESSION['logged_in']
+        );
 
         redirect("main/login");
     }

@@ -16,7 +16,7 @@ class Inventory extends \core\MY_Controller
         $data["title"] = "Store inventory";
         $config['base_url'] = base_url() . 'inventory/index/';
         $config['total_rows'] = $this->inventory->total_records();
-        $config['per_page'] = 5;
+        $config['per_page'] = 10;
         $config["uri_segment"] = 3;
         $config['full_tag_open'] = '<ul class="pagination paging-3d">';
         $config['full_tag_close'] = '</ul>';

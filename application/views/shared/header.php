@@ -31,7 +31,7 @@
             margin: 20px;
             display: block;
             width: 160px;
-            color: white;
+            color: #262626;
         }
 
         div .btn_style {
@@ -48,32 +48,23 @@
             box-shadow: 2px 2px 3px rgba(0, 0, 0, .5);
         }
 
-        .nav-ul .arrow:after {
-            content: '\203A';
-            float: right;
-            margin-right: 20px;
-            transform: rotate(90deg);
-            -webkit-transform: rotate(90deg);
-            -moz-transform: rotate(90deg);
-            -o-transform: rotate(90deg);
-            transition: .5s;
-        }
-
-        .nav-ul ul li a:before {
-            content: '\203A';
-            margin-right: 10px;
-        }
-
-        .main-nav li.click .arrow:after {
-            content: '\2039';
-            transition: .3s;
-        }
-
         .paging-3d {
             -webkit-box-shadow: 6px 3px 71px -2px rgba(0, 0, 0, 1);
             -moz-box-shadow: 6px 3px 71px -2px rgba(0, 0, 0, 1);
             box-shadow: 6px 3px 71px -2px rgba(0, 0, 0, 1);
         }
+        .logo{
+            margin-top:10px;
+            margin-left:10px;
+            float:left;
+        }
+        .logoMJ{
+            text-shadow: 0px 3px 1px rgba(0,0,0,.4),
+                         2px 0px 2px rgba(0,0,0,.4),
+                         0px 3px 0px rgba(0,0,0,.2)!important;
+        }
+
+
     </style>
 </head>
 <body>
@@ -89,7 +80,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a width="350px" class="navbar-brand" href="<?php echo base_url("/") ?>">Madinat Jumeirah</a>
+            <image class="logo" src="<?php echo base_url("/assets/") ?>favicon/logo%202.png" alt="logo" width="30px">
+            <a width="500px" class="navbar-brand logoMJ" href="<?php echo base_url("/") ?>"> Madinat Jumeirah</a>
         </div>
         <!-- Top Menu Items -->
         <ul class="nav navbar-right top-nav">
@@ -111,8 +103,8 @@
         <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
         <!-- ==================================================================================================== -->
         <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-        <!-- <?php // echo base_url("assets/docs/admin/charts.html")?> -->
-        <div class="collapse navbar-collapse navbar-ex1-collapse" id="accordion">
+
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
                 <li>
                     <a href="<?php echo base_url("/dashboard/index") ?>"><i class="fa fa-fw fa-home fa-2x"></i>

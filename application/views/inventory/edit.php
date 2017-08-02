@@ -5,7 +5,7 @@ echo form_open("inventory/update", "class='myform'");
         <div class="col-md-6 col-lg-6 col-md-offset-3">
             <div class="form-group">
                 <label for="type_id">Item Type</label>
-                <select name="type_id" class="form-control" id="type_id"  required>
+                <select name="type_id" class="form-control" id="type_id" value="<?php echo $row->name; ?>"  required>
                     <option value="0"> Please select</option>
                     <?php
                     foreach ($types as $status) {
@@ -45,7 +45,7 @@ echo form_open("inventory/update", "class='myform'");
                     <?php } ?>
                 </select>
       </div> 
-      
+
       <input type="submit" name="edit" class="btn btn-primary btn_style" value="Update"/>
 
 
