@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class InventoryType_model extends CI_Model
 {
 
+
     //const
     const ENT_NAME = 'inventory_types';
 
@@ -18,6 +19,13 @@ class InventoryType_model extends CI_Model
 
         return $rows;
     }
+    public function insert_entity()
+    {
+        $this->id = $id;
+        $this->name = $_REQUEST["name"];
+
+        $this->db->insert(SELf::ENT_NAME, $this);
+    }
 
     public function get_entity($id)
     {
@@ -26,5 +34,13 @@ class InventoryType_model extends CI_Model
 
         return $rows[0];
     }
+
+
+    public function delete_entity($id)
+    {
+        $this->db->where("id", $id);
+        $this->db->delete(SELF::ENT_NAME);
+    }
+
 
 }

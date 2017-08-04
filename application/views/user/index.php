@@ -1,5 +1,5 @@
 <form class="form-inline" >
-    <label for="type_id">User Roles </label>
+    <label for="type_id">User Role </label>
     <select name="type_id" class="form-control" id="type_id" required>
         <option value="0"> Please select</option>
             <option value="1">Adminstration</option>
@@ -12,13 +12,41 @@
     <input type="text" class="form-control" id="username" placeholder="User Name" required>
     <label for="password" style="margin-left:10px;"> Password:</label>
     <input type="text" class="form-control" id="password" placeholder="Password" required>
-    <label class="switch">
-        <input type="checkbox">
-        <span class="slider round"></span>
-    </label>
 
 
-    <input type="button" class="btn btn-primary" onclick="sweet-button" id="email" value="Send Email"  required>
+
+    <input type="button" class="btn btn-primary" onclick="buttonEmailSender(id)"  value="Send Email" style="margin-left:10px;"  required>
 
     <button type="submit" class="btn btn-primary" >Create</button>
 </form>
+<hr/>
+<table class="table table-inverse">
+    <thead>
+    <tr>
+        <th>User Role</th>
+        <th>Full Name</th>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Action</th>
+        <th>Active/Deactive</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($results as $row){?>
+    <tr>
+        <td><?php echo $row->role_id ?></td>
+        <td><?php echo $row->full_name ?></td>
+        <td><?php echo $row->username ?></td>
+        <td><?php echo $row->password ?></td>
+        <td >
+            <a href="#" class="btn btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+            <a href="#" class="btn btn-danger" onclick="askDeletiingItem(id)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+        </td>
+        <td><label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </td>
+    </tr>
+    <?php }?>
+    </tbody>

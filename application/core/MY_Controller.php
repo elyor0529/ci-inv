@@ -20,6 +20,7 @@ class MY_Controller extends \CI_Controller
         $data['types'] = $this->inventorytype->get_entities();
         $data['statuses'] = $this->inventorystatus->get_entities();
 
+
         $this->load->view('/shared/header', $data);
         $this->load->view( $controller . '/' . $action, $data);
         $this->load->view('/shared/footer', $data);

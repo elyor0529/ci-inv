@@ -11,5 +11,6 @@ class Role extends \core\MY_Controller
         $this->renderView("role", "index", $data);
     }
 
+
 }
 

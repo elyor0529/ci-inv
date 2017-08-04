@@ -53,9 +53,7 @@
                 <a href="<?php echo site_url('inventory/edit/' . $row->id); ?>"
                    class="btn btn-success"><span class="glyphicon glyphicon-edit"
                                                  aria-hidden="true"></span></a>
-                <a href="#" class="btn btn-danger"
-                   onclick="askDeletiingItem(<?php echo $row->id; ?>)"><span
-                            class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                <a href="#" class="btn btn-danger" onclick="askDeletiingItem(<?php echo $row->id; ?>)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
             </td>
         </tr>
         <?php

@@ -25,7 +25,8 @@
 <script src="<?php echo base_url("assets/") ?>js/plugins/morris/morris-data.js"></script>
 
 <script type="text/javascript">
-    
+
+
     function askDeletiingItem(id) {
         swal({
             title: 'Are you sure?',
@@ -43,6 +44,7 @@
             window.location = '<?php echo base_url('inventory/delete/')?>' + id;
         });
     }
+
 
     $(function () {
 

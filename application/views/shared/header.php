@@ -16,7 +16,7 @@
           href="<?php echo base_url("/assets/") ?>favicon/logo%202.png">
 
     <link rel="stylesheet" href="<?php echo base_url("assets/") ?>sweetalert2/dist/sweetalert2.min.css">
-
+    <link rel="stylesheet" href="<?php echo base_url("assets/") ?>css/toggles-light.css">
     <!-- Custom CSS -->
     <link href="<?php echo base_url("/assets/") ?>css/sb-admin.css" rel="stylesheet">
 
@@ -91,11 +91,15 @@
             color: #fff;
             background: transparent !important;
         }
+        /*======================== toggle buttuon ============================*/
         .switch {
             position: relative;
             display: inline-block;
-            width: 60px;
-            height: 34px;
+            width: 50px;
+            height: 24px;
+            top:7px;
+            left:35px;
+
         }
 
         /* Hide default HTML checkbox */
@@ -109,16 +113,17 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: #ccc;
+            background-color: red;
             -webkit-transition: .4s;
             transition: .4s;
+
         }
 
         .slider:before {
             position: absolute;
             content: "";
-            height: 16px;
-            width: 16px;
+            height: 18px;
+            width: 18px;
             left: 4px;
             bottom: 4px;
             background-color: white;
@@ -142,7 +147,7 @@
 
         /* Rounded sliders */
         .slider.round {
-            border-radius: 34px;
+            border-radius: 50px;
         }
 
         .slider.round:before {
@@ -151,6 +156,7 @@
 
 
     </style>
+
 </head>
 <body>
 <div id="wrapper">
