@@ -67,7 +67,7 @@ echo form_open("inventory/update", "class='form-inline myform'");
                 </select>
             </div>
 
-            <input type="submit" name="edit" class="btn btn-primary btn_style" value="Update"/>
+            <input type="submit" name="edit" class="btn btn-primary btn_style" onclick="editAlert()" value="Update"/>
 
         </div>
     </div>

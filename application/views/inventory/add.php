@@ -46,7 +46,7 @@ echo form_open("inventory/save", "class='myform'");
                 <?php } ?>
             </select>
         </div>
-        <input type="submit" name="save" class="btn btn-primary btn_style" value="Save"/>
+        <input type="submit" name="save" class="btn btn-primary btn_style" onclick="addAlert()" value="Save"/>
 
 
     </div>

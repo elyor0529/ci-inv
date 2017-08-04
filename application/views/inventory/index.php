@@ -21,23 +21,40 @@
     <tbody>
     <?php
     foreach ($results as $row) {
+
         ?>
         <tr>
             <td><?php echo $row->id ?></td>
-            <td><?php echo $row->type_id ?></td>
+            <td>
+                <?php foreach ($types as $type) {
+                    if ($type->id == $row->type_id) {
+                        ?>
+                        <?php echo $type->name ?>
+                        <?php
+                    }
+                } ?>
+            </td>
             <td><?php echo $row->name ?></td>
             <td><?php echo $row->quantity ?></td>
             <td><?php echo $row->serial_number ?></td>
             <td><?php echo $row->location ?></td>
             <td><?php echo $row->size ?></td>
-            <td><?php echo $row->status_id ?></td>
+            <td>
+                <?php foreach ($statuses as $status) {
+                    if ($status->id == $row->status_id) {
+                        ?>
+                        <?php echo $status->name ?>
+                        <?php
+                    }
+                } ?>
+            </td>
             <td><?php echo date("d/m/Y"); ?></td>
             <td class="text-center">
                 <a href="<?php echo site_url('inventory/edit/' . $row->id); ?>"
                    class="btn btn-success"><span class="glyphicon glyphicon-edit"
                                                  aria-hidden="true"></span></a>
-                <a href="<?php echo site_url('inventory/delete/' . $row->id); ?>" class="btn btn-danger"
-                   onclick="return confirm('Are you sure would you like delete this?')"><span
+                <a href="#" class="btn btn-danger"
+                   onclick="askDeletiingItem(<?php echo $row->id; ?>)"><span
                             class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
             </td>
         </tr>

@@ -18,13 +18,25 @@
         ?>
         <tr>
             <td><?php echo $row->id ?></td>
-            <td><?php echo $row->type_id ?></td>
+            <?php foreach ($types as $type){
+                if($type->id == $row->type_id){
+                    ?>
+                    <td><?php echo $type->name ?></td>
+                <?php }
+            }?>
+
             <td><?php echo $row->name ?></td>
             <td><?php echo $row->quantity ?></td>
             <td><?php echo $row->serial_number ?></td>
             <td><?php echo $row->location ?></td>
             <td><?php echo $row->size ?></td>
-            <td><?php echo $row->status_id ?></td>
+            <?php foreach ($statuses as $status){
+                if($status->id == $row->status_id){
+                    ?>
+                    <td><?php echo $status->name ?></td>
+                <?php }
+            }?>
+
             <td><?php echo date("d/m/Y"); ?></td>
         </tr>
         <?php

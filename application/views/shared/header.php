@@ -15,6 +15,8 @@
     <link rel="icon" type="decor  ated-typography-set-2-number-7-16-244412.png"
           href="<?php echo base_url("/assets/") ?>favicon/logo%202.png">
 
+    <link rel="stylesheet" href="<?php echo base_url("assets/") ?>sweetalert2/dist/sweetalert2.min.css">
+
     <!-- Custom CSS -->
     <link href="<?php echo base_url("/assets/") ?>css/sb-admin.css" rel="stylesheet">
 
@@ -89,6 +91,63 @@
             color: #fff;
             background: transparent !important;
         }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        /* Hide default HTML checkbox */
+        .switch input {display:none;}
+
+        /* The slider */
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
 
 
     </style>
@@ -107,7 +166,7 @@
                 <span class="icon-bar"></span>
             </button>
             <image class="logo" src="<?php echo base_url("/assets/") ?>favicon/logo%202.png" alt="logo" width="30px">
-                <a width="500px" class="navbar-brand logoMJ" href="<?php echo base_url("/") ?>"> Madinat Jumeirah</a>
+                <a width="500px" class="navbar-brand logoMJ" href="<?php echo base_url("/") ?>"> Madinat Jumeirah </a>
         </div>
         <!-- Top Menu Items -->
         <ul class="nav navbar-right top-nav">
@@ -136,64 +195,76 @@
                     <a href="<?php echo base_url("/dashboard/index") ?>"><i class="fa fa-fw fa-home fa-2x"></i>
                         Dashboard</a>
                 </li>
-                <li>
-                    <a href="<?php echo base_url("/role/index") ?>"><i class="fa fa-fw fa-bar-chart-o fa-2x"></i> Roles</a>
-                </li>
-                <li>
-                    <a href="<?php echo base_url("/user/index") ?>"><i class="fa fa-users fa-2x"></i> Users</a>
-                </li>
-                <li>
-                    <a href="<?php echo base_url("/status/index") ?>"><i class="fa fa-fw fa-code-fork fa-2x"></i>
-                        Statuses</a>
-                </li>
-                <li>
-                    <a href="<?php echo base_url("/type/index") ?>"><i class="fa fa-fw fa-cogs fa-2x"></i> Types</a>
-                </li>
-                <li>
-                    <a href="<?php echo base_url("/inventory/index") ?>"><i class="fa fa-fw fa-desktop fa-2x"></i>
-                        Inventories</a>
-                </li>
-                <li>
-                    <a href="javascript:;" class="dropdown" data-toggle="collapse" data-target="#report-list"><i
-                                class="fa fa-fw fa-files-o fa-2x"></i>Reports<i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="report-list" class="collapse">
-                        <li>
-                            <a href="javascript:;" class="dropdown" data-toggle="collapse" data-target="#status-list">
-                                <i class="fa fa-fw fa-map-marker"></i> By Status <i class="fa fa-fw fa-caret-down"></i>
-                            </a>
-                            <ul id="status-list" class="collapse">
-                                <?php
-                                foreach ($statuses as $status) {
-                                    ?>
-                                    <li>
-                                        <a href="<?php echo base_url("/dashboard/report?status=" . $status->id) ?>"
-                                           class="text-muted ">
-                                            <i class="fa fa-fw fa-file-archive-o"></i> <?php echo $status->name; ?>
-                                        </a>
-                                    </li>
-                                <?php } ?>
-                            </ul>
-                        </li>
+                <?php if (strcmp($_SESSION['role_id'], "1") == 0) { ?>
+                    <li>
+                        <a href="<?php echo base_url("/role/index") ?>"><i class="fa fa-fw fa-bar-chart-o fa-2x"></i>
+                            Roles</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo base_url("/user/index") ?>"><i class="fa fa-users fa-2x"></i> Users</a>
+                    </li>
+                <?php }
+                if ((strcmp($_SESSION['role_id'], "2") == 0)) { ?>
+                    <li>
+                        <a href="<?php echo base_url("/inventory/index") ?>"><i class="fa fa-fw fa-desktop fa-2x"></i>
+                            Inventories</a>
+                    </li>
+                <?php }
+                if ((strcmp($_SESSION['role_id'], "3") == 0)) { ?>
 
-                        <li>
-                            <a href="javascript:;" class="dropdown" data-toggle="collapse" data-target="#type-list">
-                                <i class="fa fa-fw fa-map-marker"></i>By Type <i class="fa fa-fw fa-caret-down"></i>
-                            </a>
-                            <ul id="type-list" class="collapse">
-                                <?php
-                                foreach ($types as $type) {
-                                    ?>
-                                    <li>
-                                        <a href="<?php echo base_url("/dashboard/report?type=" . $type->id) ?>"
-                                           class="text-muted ">
-                                            <i class="fa fa-fw fa-file-archive-o"></i> <?php echo $type->name; ?>
-                                        </a>
-                                    </li>
-                                <?php } ?>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
+                    <li>
+                        <a href="<?php echo base_url("/status/index") ?>"><i class="fa fa-fw fa-code-fork fa-2x"></i>
+                            Statuses</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo base_url("/type/index") ?>"><i class="fa fa-fw fa-cogs fa-2x"></i> Types</a>
+                    </li>
+
+                    <li>
+                        <a href="javascript:;" class="dropdown" data-toggle="collapse" data-target="#report-list"><i
+                                    class="fa fa-fw fa-files-o fa-2x"></i>Reports<i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="report-list" class="collapse">
+                            <li>
+                                <a href="javascript:;" class="dropdown" data-toggle="collapse"
+                                   data-target="#status-list">
+                                    <i class="fa fa-fw fa-share-square-o"></i> By Status <i
+                                            class="fa fa-fw fa-caret-down"></i>
+                                </a>
+                                <ul id="status-list" class="collapse">
+                                    <?php
+                                    foreach ($statuses as $status) {
+                                        ?>
+                                        <li>
+                                            <a href="<?php echo base_url("/dashboard/report?status=" . $status->id) ?>"
+                                               class="text-muted ">
+                                                <i class="fa fa-fw fa-sign-in"></i> <?php echo $status->name; ?>
+                                            </a>
+                                        </li>
+                                    <?php } ?>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="javascript:;" class="dropdown" data-toggle="collapse" data-target="#type-list">
+                                    <i class="fa fa-fw fa-stack-overflow"></i>By Type <i
+                                            class="fa fa-fw fa-caret-down"></i>
+                                </a>
+                                <ul id="type-list" class="collapse">
+                                    <?php
+                                    foreach ($types as $type) {
+                                        ?>
+                                        <li>
+                                            <a href="<?php echo base_url("/dashboard/report?type=" . $type->id) ?>"
+                                               class="text-muted ">
+                                                <i class="fa fa-fw fa-sign-in"></i> <?php echo $type->name; ?>
+                                            </a>
+                                        </li>
+                                    <?php } ?>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                <?php } ?>
             </ul>
         </div>
         <!-- /.navbar-collapse -->

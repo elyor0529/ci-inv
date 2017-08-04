@@ -9,5 +9,8 @@
     <orderEntry type="library" name="bootstrap-datepicker" level="application" />
     <orderEntry type="library" name="html5shiv" level="application" />
     <orderEntry type="library" name="respond" level="application" />
+    <orderEntry type="library" name="raphael" level="application" />
+    <orderEntry type="library" name="morris" level="application" />
+    <orderEntry type="library" name="core" level="application" />
   </component>
 </module>

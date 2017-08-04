@@ -14,8 +14,8 @@ class InventoryStatus_model extends CI_Model
     //members
     public function get_entities()
     {
-        $rows = $this->db->get(SELF::ENT_NAME)->result();
 
+        $rows = $this->db->get(SELF::ENT_NAME)->result();
         return $rows;
     }
 
@@ -23,7 +23,6 @@ class InventoryStatus_model extends CI_Model
     {
         $this->db->where('id', $id);
         $rows = $this->db->get(SELF::ENT_NAME)->result();
-
         return $rows[0];
     }
 

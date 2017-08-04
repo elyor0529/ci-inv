@@ -108,7 +108,7 @@ class Inventory extends \core\MY_Controller
         $this->inventory->delete_entity($id);
         $this->session->set_flashdata('success', 'Deleted successfully ...');
 
-        redirect("inventory/index");
+       redirect("inventory/index");
     }
 
     public function filter()

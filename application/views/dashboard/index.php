@@ -73,7 +73,7 @@
                         <i class="fa fa-rss-square fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">13</div>
+                        <div class="huge">3</div>
                         <div>Active Users</div>
                     </div>
                 </div>

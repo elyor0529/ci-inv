@@ -9,6 +9,7 @@ class Status extends \core\MY_Controller
         $data["title"] = "Statuses";
 
         $this->renderView("status", "index", $data);
+
     }
 
 }
