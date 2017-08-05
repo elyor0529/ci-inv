@@ -10,7 +10,6 @@
 <table class="table table-bordered table-striped">
     <thead>
     <tr>
-        <th>#</th>
         <th>Type</th>
         <th>Name</th>
         <th>Quantity</th>
@@ -19,7 +18,7 @@
         <th>Size</th>
         <th>Status</th>
         <th>Date</th>
-        <th>Action</th>
+        <th></th>
     </tr>
     </thead>
     <tbody>
@@ -28,7 +27,6 @@
 
         ?>
         <tr>
-            <td><?php echo $row->id ?></td>
             <td>
                 <?php foreach ($types as $type) {
                     if ($type->id == $row->type_id) {
@@ -52,7 +50,7 @@
                     }
                 } ?>
             </td>
-            <td><?php echo date("d/m/Y"); ?></td>
+            <td><?php echo $row->date ?></td>
             <td class="text-center">
                 <a href="<?php echo site_url('inventory/edit/' . $row->id); ?>"
                    class="btn btn-success"><span class="glyphicon glyphicon-edit"

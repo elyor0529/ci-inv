@@ -6,7 +6,6 @@
 <table class="table table-bordered table-striped">
     <thead>
     <tr>
-   <!--  <th>#</th>-->
         <th>Type</th>
         <th>Name</th>
         <th>Quantity</th>
@@ -22,25 +21,24 @@
     foreach ($results as $row) {
         ?>
         <tr>
-    <!-- <td>--><?php //echo $row->id ?><!--</td>-->
-            <?php foreach ($types as $type){
-                if($type->id == $row->type_id){
+            <?php foreach ($types as $type) {
+                if ($type->id == $row->type_id) {
                     ?>
                     <td><?php echo $type->name ?></td>
                 <?php }
-            }?>
+            } ?>
 
             <td><?php echo $row->name ?></td>
             <td><?php echo $row->quantity ?></td>
             <td><?php echo $row->serial_number ?></td>
             <td><?php echo $row->location ?></td>
             <td><?php echo $row->size ?></td>
-            <?php foreach ($statuses as $status){
-                if($status->id == $row->status_id){
+            <?php foreach ($statuses as $status) {
+                if ($status->id == $row->status_id) {
                     ?>
                     <td><?php echo $status->name ?></td>
                 <?php }
-            }?>
+            } ?>
 
             <td><?php echo date("d/m/Y"); ?></td>
         </tr>
@@ -49,7 +47,3 @@
     ?>
     </tbody>
 </table>
-
-<div class="text-center">
-    <?php echo $pager; ?>
-</div>

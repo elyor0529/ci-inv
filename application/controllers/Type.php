@@ -6,24 +6,24 @@ class Type extends \core\MY_Controller
     public function index()
     {
         $data["title"] = "Types";
+        $data['rows'] = $this->inventorytype->get_entities();
 
         $this->renderView("type", "index", $data);
     }
-    //members
+
     public function add()
     {
         $data['title'] = "Add Type";
 
         $this->session->set_flashdata('warning', 'Please enter required fields...');
-
         $this->renderView("type", "add", $data);
     }
 
     public function save()
     {
         if (isset($_REQUEST["save"])) {
-            $this->inventory->insert_entity();
 
+            $this->inventorytype->insert_entity();
             $this->session->set_flashdata('success', 'Saved successfully ...');
 
             redirect("type/index");
@@ -43,21 +43,19 @@ class Type extends \core\MY_Controller
         }
 
         $data['title'] = "Edit Items";
-        $data["row"] = $this->inventory->get_entity($id);
+        $data["row"] = $this->inventorytype->get_entity($id);
 
         $this->session->set_flashdata('success', 'Edited successfully ...');
-        $this->renderView("inventory", "edit", $data);
+        $this->renderView("type", "edit", $data);
     }
 
     public function update()
     {
         $id = $_REQUEST['id'];
 
-        echo $id;
-
         if (isset($_REQUEST['edit'])) {
 
-            $this->inventory->update_entity($id);
+            $this->inventorytype->update_entity($id);
 
             redirect("type/index");
         } else {
@@ -71,8 +69,11 @@ class Type extends \core\MY_Controller
     public function delete()
     {
         $id = $this->uri->segment(3);
-        $this->inventory->delete_entity($id);
-        $this->session->set_flashdata('success', 'Deleted successfully ...');
+
+        if (isset($id)) {
+            $this->inventorytype->delete_entity($id);
+            $this->session->set_flashdata('success', 'Deleted successfully ...');
+        }
 
         redirect("type/index");
     }

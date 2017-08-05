@@ -7,9 +7,9 @@ class Status extends \core\MY_Controller
     public function index()
     {
         $data["title"] = "Statuses";
+        $data['rows'] = $this->inventorystatus->get_entities();
 
         $this->renderView("status", "index", $data);
-
     }
 
 }

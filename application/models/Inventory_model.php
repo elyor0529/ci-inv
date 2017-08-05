@@ -79,7 +79,7 @@ class Inventory_model extends CI_Model
         $this->location = $_REQUEST["location"];
         $this->size = $_REQUEST["size"];
         $this->status_id = $_REQUEST["status_id"];
-        $this->date = time();
+        $this->date = date("Y-m-d H:i:s");
 
         $this->db->insert(SELf::ENT_NAME, $this);
     }
@@ -104,7 +104,7 @@ class Inventory_model extends CI_Model
         $this->location = $_REQUEST["location"];
         $this->size = $_REQUEST["size"];
         $this->status_id = $_REQUEST["status_id"];
-        $this->date = time();
+        $this->date = date("Y-m-d H:i:s");
 
         $this->db->where("id", $id);
         $this->db->update(SELF::ENT_NAME, $this);
@@ -115,6 +115,5 @@ class Inventory_model extends CI_Model
         $this->db->where("id", $id);
         $this->db->delete(SELF::ENT_NAME);
     }
-
 
 }

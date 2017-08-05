@@ -15,7 +15,8 @@
     <link rel="icon" type="decor  ated-typography-set-2-number-7-16-244412.png"
           href="<?php echo base_url("/assets/") ?>favicon/logo%202.png">
 
-    <link rel="stylesheet" href="<?php echo base_url("assets/") ?>sweetalert2/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="<?php echo base_url("assets/") ?>sweetalert2/sweetalert2.min.css">
+    <link rel="stylesheet" href="<?php echo base_url("assets/") ?>TableExport/css/tableexport.min.css">
     <link rel="stylesheet" href="<?php echo base_url("assets/") ?>css/toggles-light.css">
     <!-- Custom CSS -->
     <link href="<?php echo base_url("/assets/") ?>css/sb-admin.css" rel="stylesheet">
@@ -91,19 +92,22 @@
             color: #fff;
             background: transparent !important;
         }
+
         /*======================== toggle buttuon ============================*/
         .switch {
             position: relative;
             display: inline-block;
             width: 50px;
             height: 24px;
-            top:7px;
-            left:35px;
+            top: 7px;
+            left: 35px;
 
         }
 
         /* Hide default HTML checkbox */
-        .switch input {display:none;}
+        .switch input {
+            display: none;
+        }
 
         /* The slider */
         .slider {
@@ -153,15 +157,6 @@
         .slider.round:before {
             border-radius: 50%;
         }
-/*======================================active or deactive users style====================================*/
-        .active_style{
-            color:red;
-            font-style: italic;
-            font-weight: bold;
-            text-shadow: 4px 0px 3px rgba(0,0,0,.5),
-                         0px 2px 4px rgba(0,0,0,.5);
-        }
-
 
     </style>
 

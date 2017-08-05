@@ -8,6 +8,7 @@ class User extends \core\MY_Controller
     {
         $data["title"] = "Users";
         $data['rows'] = $this->user->get_entities();
+        $data['roles'] = $this->role->get_entities();
 
         $this->renderView("user", "index", $data);
     }
@@ -15,8 +16,8 @@ class User extends \core\MY_Controller
     public function add()
     {
         $data["title"] = "Add Users";
-        $this->renderView("user", "add", $data);
 
+        $this->renderView("user", "add", $data);
     }
 
     public function save()
