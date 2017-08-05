@@ -1,6 +1,6 @@
 <form class="form-inline">
-    <a href="#" onclick="sweetAlertAddItem(<?php site_url('type/add' . $types[0]->id);?>)" class="btn btn-primary glyphicon glyphicon-plus" aria-hidden="true"></span>Add</a>
-    <a href="<?php echo site_url('type/delete' . $types[0]->id); ?>" class="btn btn-danger" onclick="askDeletiingItemType(id)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+    <a href="#" onclick="inputTypeItem()" class="btn btn-primary glyphicon glyphicon-plus" aria-hidden="true"></span>Add</a>
+    <a href=#" class="btn btn-danger" onclick="askTypeDeleting()"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 </form>
 
 

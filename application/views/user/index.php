@@ -1,6 +1,6 @@
 <form class="form-inline" >
-    <label for="type_id">User Role </label>
-    <select name="type_id" class="form-control" id="type_id" required>
+    <label for="role_id">User Role </label>
+    <select name="role_id" class="form-control" id="role_id" required>
         <option value="0"> Please select</option>
             <option value="1">Adminstration</option>
             <option value="2">User</option>
@@ -32,7 +32,7 @@
     </tr>
     </thead>
     <tbody>
-<?php foreach($users as $user){?>
+<?php foreach($rows as $user){?>
     <tr>
         <td><?php echo $user->role_id ?></td>
         <td><?php echo $user->full_name ?></td>
@@ -42,7 +42,8 @@
             <a href="#" class="btn btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
             <a href="#" class="btn btn-danger" onclick="askDeletingUser()"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
         </td>
-        <td><label class="switch">
+        <td>
+            <label class="switch">
                 <input type="checkbox">
                 <span class="slider round"></span>
             </label>
