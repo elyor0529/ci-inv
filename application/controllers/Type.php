@@ -53,6 +53,7 @@ class Type extends \core\MY_Controller
     {
         $id = $_REQUEST['id'];
 
+
         if (isset($_REQUEST['edit'])) {
 
             $this->inventorytype->update_entity($id);

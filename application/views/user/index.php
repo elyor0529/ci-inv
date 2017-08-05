@@ -35,9 +35,7 @@
                 <?php } ?>
             </td>
             <td>
-                <a href="#" class="btn btn-success" title="Send email" onclick="sendEmailToUser(<?php echo $row->id ?>)"><span
-                            class="glyphicon glyphicon-send"
-                            aria-hidden="true"></span></a>
+
                 <a href="#" class="btn btn-danger" onclick="askDeletingUser(<?php echo $row->id ?>)"><span
                             class="glyphicon glyphicon-trash"
                             aria-hidden="true"></span></a>

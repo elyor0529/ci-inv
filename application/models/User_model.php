@@ -15,6 +15,7 @@ class User_model extends CI_Model
     //properties
     public $id;
     public $full_name;
+    public $email;
     public $username;
     public $password;
     public $is_active;
@@ -46,12 +47,14 @@ class User_model extends CI_Model
         return $rows;
     }
 
-     public function insert_entity()
+    public function insert_entity()
     {
         $this->role_id = $_REQUEST["role_id"];
         $this->full_name = $_REQUEST["full_name"];
-        $this->username = $_REQUEST["username"];
+        $this->email = $_REQUEST["email"];
+        $this->username = $this->email;
         $this->password = $_REQUEST["password"];
+        $this->is_active = $_REQUEST["is_active"];
 
         $this->db->insert(SELf::ENT_NAME, $this);
     }

@@ -16,6 +16,7 @@ class User extends \core\MY_Controller
     public function add()
     {
         $data["title"] = "Add Users";
+        $data['roles'] = $this->role->get_entities();
 
         $this->renderView("user", "add", $data);
     }
@@ -23,7 +24,7 @@ class User extends \core\MY_Controller
     public function save()
     {
         if (isset($_REQUEST["save"])) {
-            $this->inventory->insert_entity();
+            $this->user->insert_entity();
             $this->session->set_flashdata('success', 'Saved successfully ...');
 
             redirect("user/index");
@@ -37,7 +38,7 @@ class User extends \core\MY_Controller
     public function delete()
     {
         $id = $this->uri->segment(3);
-        $this->type->delete_entity($id);
+        $this->user->delete_entity($id);
 
         redirect("user/index");
     }
