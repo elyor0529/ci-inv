@@ -25,6 +25,7 @@ class User_model extends CI_Model
     {
         $this->db->where("username", $username);
         $this->db->where("password", $password);
+
         $rows = $this->db->get(SELF::ENT_NAME)->num_rows();
 
         return $rows > 0;
@@ -37,6 +38,7 @@ class User_model extends CI_Model
 
         return $rows[0];
     }
+
 
 
 }
