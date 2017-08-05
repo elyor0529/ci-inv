@@ -28,6 +28,7 @@ class MY_Controller extends \CI_Controller
 
     protected function renderViewWhiteoutLayout($controller, $action, $data = null)
     {
+
         $this->load->view( $controller . '/' . $action, $data);
     }
 }
