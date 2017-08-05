@@ -14,8 +14,6 @@ class User extends \core\MY_Controller
     {
         $data['title'] = "Add Users";
 
-        $this->session->set_flashdata('warning', 'Please enter required fields...');
-
         $this->renderView("user", "add", $data);
     }
 
@@ -23,7 +21,6 @@ class User extends \core\MY_Controller
     {
         $id = $this->uri->segment(3);
         $this->type->delete_entity($id);
-        $this->session->set_flashdata('success', 'Deleted successfully ...');
 
         redirect("user/index");
     }
