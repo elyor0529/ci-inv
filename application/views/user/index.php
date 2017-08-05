@@ -32,15 +32,15 @@
     </tr>
     </thead>
     <tbody>
-    <?php foreach ($results as $row){?>
+<?php foreach($users as $user){?>
     <tr>
-        <td><?php echo $row->role_id ?></td>
-        <td><?php echo $row->full_name ?></td>
-        <td><?php echo $row->username ?></td>
-        <td><?php echo $row->password ?></td>
+        <td><?php echo $user->role_id ?></td>
+        <td><?php echo $user->full_name ?></td>
+        <td><?php echo $user->username ?></td>
+        <td><?php echo $user->password ?></td>
         <td >
             <a href="#" class="btn btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-            <a href="#" class="btn btn-danger" onclick="askDeletiingItem(id)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+            <a href="#" class="btn btn-danger" onclick="askDeletingUser()"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
         </td>
         <td><label class="switch">
                 <input type="checkbox">
@@ -48,5 +48,5 @@
             </label>
         </td>
     </tr>
-    <?php }?>
+<?php }?>
     </tbody>
