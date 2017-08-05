@@ -27,6 +27,10 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 <script src="<?php echo base_url("assets/") ?>js/plugins/morris/morris-data.js"></script>
 
+</body>
+</html>
+
+
 <script type="text/javascript">
 
     function askDeletiingItem(id) {
@@ -113,6 +117,14 @@
 
     $(function () {
 
+        $.fn.tableExport.bootstrap = ["btn", "btn-link", "btn-toolbar"];
+        $("#pivot-table").tableExport({
+            bootstrap: true,
+            position: 'top',
+            footers: false,
+            formats: ['xlsx', 'csv']
+        });
+
         $('.datepicker').datepicker({
             format: "mm/dd/yyyy",
             clearBtn: true,
@@ -125,8 +137,7 @@
             $("#flash-message").fadeOut("slow");
         }, 5000);
 
+
     });
 
 </script>
-</body>
-</html>

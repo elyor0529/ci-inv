@@ -16,7 +16,7 @@
           href="<?php echo base_url("/assets/") ?>favicon/logo%202.png">
 
     <link rel="stylesheet" href="<?php echo base_url("assets/") ?>sweetalert2/sweetalert2.min.css">
-    <link rel="stylesheet" href="<?php echo base_url("assets/") ?>TableExport/css/tableexport.min.css">
+    <link rel="stylesheet" href="<?php echo base_url("assets/") ?>TableExport/css/tableexport.css">
     <link rel="stylesheet" href="<?php echo base_url("assets/") ?>css/toggles-light.css">
     <!-- Custom CSS -->
     <link href="<?php echo base_url("/assets/") ?>css/sb-admin.css" rel="stylesheet">
