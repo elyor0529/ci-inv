@@ -39,7 +39,6 @@
         <td><?php echo $user->username ?></td>
         <td><?php echo $user->password ?></td>
         <td >
-            <a href="#" class="btn btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
             <a href="#" class="btn btn-danger" onclick="askDeletingUser()"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
         </td>
         <td>

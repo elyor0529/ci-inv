@@ -1,7 +1,12 @@
+<p style="text-align: right;">
+
+    <a href="#" class="btn btn-success"><i class="fa fa-file-excel-o" aria-hidden="true"></i> Export XLS</a>
+</p>
+
 <table class="table table-bordered table-striped">
     <thead>
     <tr>
-        <th>#</th>
+   <!--  <th>#</th>-->
         <th>Type</th>
         <th>Name</th>
         <th>Quantity</th>
@@ -17,7 +22,7 @@
     foreach ($results as $row) {
         ?>
         <tr>
-            <td><?php echo $row->id ?></td>
+    <!-- <td>--><?php //echo $row->id ?><!--</td>-->
             <?php foreach ($types as $type){
                 if($type->id == $row->type_id){
                     ?>

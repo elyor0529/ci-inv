@@ -38,6 +38,32 @@ class User_model extends CI_Model
 
         return $rows[0];
     }
+    public function insert_entity()
+    {
+        $this->id = $id;
+        $this->role_id = $_REQUEST["role_id"];
+        $this->full_name = $_REQUEST["full_name"];
+        $this->username = $_REQUEST["username"];
+        $this->password = $_REQUEST["password"];
+
+        $this->db->insert(SELf::ENT_NAME, $this);
+    }
+//crud part for users
+    public function get_entityer($id)
+    {
+        $this->db->where('id', $id);
+        $rows = $this->db->get(SELF::ENT_NAME)->result();
+
+        return $rows[0];
+    }
+
+
+
+    public function delete_entity($id)
+    {
+        $this->db->where("id", $id);
+        $this->db->delete(SELF::ENT_NAME);
+    }
 
 
 

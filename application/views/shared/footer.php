@@ -44,7 +44,131 @@
             window.location = '<?php echo base_url('inventory/delete/')?>' + id;
         });
     }
-
+    function inputTypeItem(){
+        swal({
+            title: 'Add Item type',
+            input: 'text',
+            showCancelButton: true,
+            inputValidator: function (value) {
+                return new Promise(function (resolve, reject) {
+                    if (value) {
+                        resolve()
+                    } else {
+                        reject('Please write item type!')
+                    }
+                })
+            }
+        }).then(function (result) {
+            swal({
+                type: 'success',
+                html: 'You entered: ' + result
+            })
+        })
+    }
+    function askTypeDeleting(){
+        swal({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'No, cancel!',
+            confirmButtonClass: 'btn btn-success',
+            cancelButtonClass: 'btn btn-danger',
+            buttonsStyling: false
+        }).then(function () {
+            swal(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+            )
+        }, function (dismiss) {
+            // dismiss can be 'cancel', 'overlay',
+            // 'close', and 'timer'
+            if (dismiss === 'cancel') {
+                swal(
+                    'Cancelled',
+                    'Your imaginary file is safe :)',
+                    'error'
+                )
+            }
+        })
+    }
+    function buttonEmailSender(){
+        swal({
+            title: 'Send email to users',
+            input: 'text',
+            showCancelButton: true,
+            inputValidator: function (value) {
+                return new Promise(function (resolve, reject) {
+                    if (value) {
+                        resolve()
+                    } else {
+                        reject('Please write  email address!')
+                    }
+                })
+            }
+        }).then(function (result) {
+            swal({
+                type: 'success',
+                html: 'You entered: ' + result
+            })
+        })
+    }
+    function askDeletingUser(){
+        swal({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'No, cancel!',
+            confirmButtonClass: 'btn btn-success',
+            cancelButtonClass: 'btn btn-danger',
+            buttonsStyling: false
+        }).then(function () {
+            swal(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+            )
+        }, function (dismiss) {
+            // dismiss can be 'cancel', 'overlay',
+            // 'close', and 'timer'
+            if (dismiss === 'cancel') {
+                swal(
+                    'Cancelled',
+                    'Your imaginary file is safe :)',
+                    'error'
+                )
+            }
+        })
+    }
+ function inputTypeEditItem(){
+     swal({
+         title: 'Edit type',
+         input: 'text',
+         showCancelButton: true,
+         inputValidator: function (value) {
+             return new Promise(function (resolve, reject) {
+                 if (value) {
+                     resolve()
+                 } else {
+                     reject('Please write item type!')
+                 }
+             })
+         }
+     }).then(function (result) {
+         swal({
+             type: 'success',
+             html: 'You entered: ' + result
+         })
+     })
+ }
 
     $(function () {
 

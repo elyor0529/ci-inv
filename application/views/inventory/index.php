@@ -1,6 +1,10 @@
-<p>
+<p style="text-align: left;">
     <a href="<?php echo site_url('inventory/add'); ?>" class="btn btn-primary"><span
                 class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add</a>
+</p>
+<p style="text-align: right; margin-top: -50px;">
+
+    <a href="#" class="btn btn-success"><i class="fa fa-file-excel-o" aria-hidden="true"></i> Export XLS</a>
 </p>
 
 <table class="table table-bordered table-striped">
