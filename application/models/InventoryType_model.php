@@ -13,16 +13,11 @@ class InventoryType_model extends CI_Model
     public $name;
 
     //members
-    public function get_entities()
-    {
-        $rows = $this->db->get(SELF::ENT_NAME)->result();
-
-        return $rows;
-    }
     public function insert_entity()
     {
         $this->id = $id;
         $this->name = $_REQUEST["name"];
+
 
         $this->db->insert(SELf::ENT_NAME, $this);
     }
@@ -35,12 +30,21 @@ class InventoryType_model extends CI_Model
         return $rows[0];
     }
 
+    public function update_entity($id)
+    {
+
+        $this->id = $id;
+        $this->name = $_REQUEST["name"];
+
+
+        $this->db->where("id", $id);
+        $this->db->update(SELF::ENT_NAME, $this);
+    }
 
     public function delete_entity($id)
     {
         $this->db->where("id", $id);
         $this->db->delete(SELF::ENT_NAME);
     }
-
 
 }

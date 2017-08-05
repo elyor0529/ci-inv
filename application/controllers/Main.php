@@ -39,7 +39,7 @@ class Main extends \core\MY_Controller
 
             if ($this->user->authorize($username, $password)) {
 
-                $user = $this->user->get_entity($username);
+                $user = $this->user->get_entity_by_login($username);
                 $data = Array(
                     'user_id' => $user->id,
                     'user_name' => $user->full_name,

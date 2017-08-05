@@ -14,10 +14,11 @@ class Role_model extends CI_Model
     //members
     public function get_entities()
     {
-
         $rows = $this->db->get(SELF::ENT_NAME)->result();
+
         return $rows;
     }
+
 
     public function get_entity($id)
     {

@@ -153,6 +153,14 @@
         .slider.round:before {
             border-radius: 50%;
         }
+/*======================================active or deactive users style====================================*/
+        .active_style{
+            color:red;
+            font-style: italic;
+            font-weight: bold;
+            text-shadow: 4px 0px 3px rgba(0,0,0,.5),
+                         0px 2px 4px rgba(0,0,0,.5);
+        }
 
 
     </style>

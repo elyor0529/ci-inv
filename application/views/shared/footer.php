@@ -117,7 +117,7 @@
             })
         })
     }
-    function askDeletingUser(){
+    function askDeletingUser(id){
         swal({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -132,21 +132,9 @@
             buttonsStyling: false
         }).then(function () {
             swal(
-                'Deleted!',
-                'Your file has been deleted.',
-                'success'
-            )
-        }, function (dismiss) {
-            // dismiss can be 'cancel', 'overlay',
-            // 'close', and 'timer'
-            if (dismiss === 'cancel') {
-                swal(
-                    'Cancelled',
-                    'Your imaginary file is safe :)',
-                    'error'
+                window.location = '<?php echo base_url('user/delete/')?>' + id;
                 )
-            }
-        })
+        }
     }
  function inputTypeEditItem(){
      swal({

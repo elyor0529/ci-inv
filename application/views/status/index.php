@@ -5,7 +5,7 @@
 
 
 <ul style=" font-size:1.2em; text-decoration-style: bold; color: grey; margin-top:30px;">
-    <?php foreach ($statuses as $rows) {?>
-        <li><?php echo $rows->name ?></li>
+    <?php foreach ($statuses as $row) {?>
+        <li><?php echo $row->name ?></li>
     <?php }?>
 </ul>

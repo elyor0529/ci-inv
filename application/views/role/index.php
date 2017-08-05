@@ -1,6 +1,6 @@
-<ul style="list-style-type:none; font-size:1.2em; text-decoration-style: bold; color: grey;">
-<?php foreach($roles as $rows){?>
-    <li><?php $rows->id;?> => <?php $rows->name;?></li>
-    <hr/>
-<?php }?>
+<ul>
+   <?php foreach ($rows as $row){?>
+        <li> <?php $row->name; ?></li>
+        <hr/>
+   <?php }?>
 </ul>
