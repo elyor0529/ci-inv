@@ -52,5 +52,4 @@ class InventoryType_model extends CI_Model
         $this->db->delete(SELF::ENT_NAME);
     }
 
-
 }
