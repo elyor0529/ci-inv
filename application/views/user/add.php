@@ -4,9 +4,12 @@ echo form_open("user/save", "class='myform form-inline'");
 <label for="role_id" style="margin-right:10px;"> Role</label>
 <select name="role_id" class="form-control" id="role_id" required>
     <option value="0"> Please select</option>
-    <?php foreach ($roles as $role) { ?>
-        <option value="<?php echo $role->id; ?>"><?php echo $role->name; ?></option>
-    <?php } ?>
+    <?php foreach ($roles as $role) {
+        if($role->id == 1){
+            echo "Admin should be single."?>
+    <?php }else{ ?>
+            <option value="<?php echo $role->id; ?>"><?php echo $role->name; ?></option>
+        <?php } }?>
 </select>
 <label for="full_name" style="margin-left:20px;"> Full Name</label>
 <input type="text" name="full_name" class="form-control" id="full_name" required>

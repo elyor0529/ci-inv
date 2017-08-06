@@ -116,4 +116,21 @@ class Inventory_model extends CI_Model
         $this->db->delete(SELF::ENT_NAME);
     }
 
+    public function get_locations()
+    {
+        $this->db->distinct();
+        $this->db->select("location");
+        $rows = $this->db->get(SELF::ENT_NAME)->result();
+
+        return $rows;
+    }
+
+    public function location_entity($id)
+    {
+        $this->db->where('id', $id);
+        $rows = $this->db->get(SELF::ENT_NAME)->result();
+
+        return $rows[0];
+    }
+
 }

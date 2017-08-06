@@ -1,3 +1,15 @@
+<form class="navbar-form" role="search" action=" {{ base_url }}search/search_keyword" method = "post" style="width:500px; margin:0 auto;">
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search" name = "keyword"size="15px; ">
+        <div class="input-group-btn" style="margin-top:30px;">
+            <button class="btn btn-default " type="submit" value ="Search" style="margin-top:-1px !important;"><i class="glyphicon glyphicon-search"></i></button>
+        </div>
+    </div>
+    <select class="form-control pull-left" id="location" name="location" style="margin-right: 20px;">
+        <option selected>Choose location</option>
+        <option value="1">All</option>
+    </select>
+</form>
 <div class="table-responsive">
     <table class="table table-bordered table-striped" id="pivot-table">
         <thead>

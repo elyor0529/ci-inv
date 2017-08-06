@@ -46,6 +46,10 @@ echo form_open("inventory/save", "class='myform'");
                 <?php } ?>
             </select>
         </div>
+        <div class="form-group">
+            <label for="date">Date</label>
+            <input type="date" name="date" id="date" class="form-control" required>
+        </div>
         <input type="submit" name="save" class="btn btn-primary btn_style" onclick="addAlert()" value="Save"/>
     </div>
 </div>

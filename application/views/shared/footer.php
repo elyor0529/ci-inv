@@ -118,18 +118,11 @@
         $.fn.tableExport.bootstrap = ["btn", "btn-link", "btn-toolbar"];
         $("#pivot-table").tableExport({
             bootstrap: true,
-            position: 'top',
+            position: 'top-right',
             footers: false,
             formats: ['xlsx', 'csv']
         });
 
-        $('.datepicker').datepicker({
-            format: "mm/dd/yyyy",
-            clearBtn: true,
-            calendarWeeks: true,
-            autoclose: true,
-            todayHighlight: true
-        });
 
         setTimeout(function () {
             $("#flash-message").fadeOut("slow");

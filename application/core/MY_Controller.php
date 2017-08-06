@@ -16,7 +16,6 @@ class MY_Controller extends \CI_Controller
 
     protected function renderView($controller, $action, $data = null)
     {
-
         $data['types'] = $this->inventorytype->get_entities();
         $data['statuses'] = $this->inventorystatus->get_entities();
 
@@ -50,7 +49,7 @@ class MY_Controller extends \CI_Controller
         $this->email->subject('Madinat Jumeirah  - User credentials');
         $this->email->message('Dear, ' . $_SESSION["user_name"] . ' ! <br/>Your credentials <br/> User-name: ' . $user->email . ' <br/> Password: ' . $user->password);
         $this->email->send();
-        $this->session->set_flashdata('success', 'Your email was sent.');
+        $this->session->set_flashdata('success', 'Your profile has been changed.');
 
 //        if ($this->email->send()) {
 //            echo 'Your email was sent, thanks ' . $_SESSION["user_name"] . '.';

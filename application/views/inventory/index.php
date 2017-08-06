@@ -1,7 +1,22 @@
-<p style="text-align: left;">
+<p>
     <a href="<?php echo site_url('inventory/add'); ?>" class="btn btn-primary"><span
                 class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add</a>
 </p>
+<form class="navbar-form pull-right" role="search" action="" method="post" style="margin-top: -50px;">
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search" name="keyword" size="15px; ">
+        <div class="input-group-btn" style="margin-top:30px;">
+            <button class="btn btn-default " type="submit" value="Search" style="margin-top:-1px !important;"><i
+                        class="glyphicon glyphicon-search"></i></button>
+        </div>
+    </div>
+    <select class="form-control pull-left" id="location" name="location" style="margin-right: 20px;">
+        <option>-- All --</option>
+        <?php foreach ($locations as $row) { ?>
+            <option><?php echo $row->location ?></option>
+        <?php } ?>
+    </select>
+</form>
 
 <div class="table-responsive">
     <table class="table table-bordered table-striped" id="pivot-table">
