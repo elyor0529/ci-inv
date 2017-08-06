@@ -27,14 +27,6 @@ class User_model extends CI_Model
         $this->db->where("username", $username);
         $this->db->where("password", $password);
 
-        $rows = $this->db->get(SELF::ENT_NAME)->num_rows();
-
-        return $rows > 0;
-    }
-
-    public function get_entity_by_login($username)
-    {
-        $this->db->where("username", $username);
         $rows = $this->db->get(SELF::ENT_NAME)->result();
 
         return $rows[0];
@@ -73,5 +65,26 @@ class User_model extends CI_Model
         $this->db->delete(SELF::ENT_NAME);
     }
 
+    public function update_entity($id)
+    {
+        $this->id = $id;
+        $this->full_name = $_REQUEST["full_name"];
+        $this->email = $_REQUEST["email"];
+        $this->username = $this->email;
+        $this->password = $_REQUEST["password"];
+        $this->role_id = $_SESSION["role_id"];
 
+        $this->db->where("id", $id);
+        $this->db->update(SELF::ENT_NAME, $this);
+    }
+
+    public function change_status($id)
+    {
+        $ent = $this->get_entity($id);
+
+        $ent->is_active = $ent->is_active == 0 ? 1 : 0;
+
+        $this->db->where("id", $id);
+        $this->db->update(SELF::ENT_NAME, $ent);
+    }
 }

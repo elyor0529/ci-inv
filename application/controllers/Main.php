@@ -21,7 +21,6 @@ class Main extends \core\MY_Controller
 
     }
 
-
     public function login()
     {
         $data['title'] = "Login";
@@ -37,18 +36,25 @@ class Main extends \core\MY_Controller
 
         if (isset($username) && isset($password)) {
 
-            if ($this->user->authorize($username, $password)) {
+            $user = $this->user->authorize($username, $password);
 
-                $user = $this->user->get_entity_by_login($username);
-                $data = Array(
-                    'user_id' => $user->id,
-                    'user_name' => $user->full_name,
-                    'role_id' =>$user->role_id,
-                    'logged_in' => TRUE
-                );
-                $this->session->set_userdata($data);
+            if ($user) {
 
-                redirect("main/index");
+                echo $user->is_active;
+
+                if ($user->is_active == 0) {
+                    $this->session->set_flashdata("error", "You are deactivate.");
+                } else {
+                    $data = Array(
+                        'user_id' => $user->id,
+                        'user_name' => $user->full_name,
+                        'role_id' => $user->role_id,
+                        'logged_in' => TRUE
+                    );
+                    $this->session->set_userdata($data);
+
+                    redirect("main/index");
+                }
             } else {
                 $this->session->set_flashdata("error", "Invalid Username or Password");
             }
@@ -56,7 +62,6 @@ class Main extends \core\MY_Controller
 
         redirect("main/login");
     }
-
 
     public function logout()
     {

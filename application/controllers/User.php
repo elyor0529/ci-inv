@@ -32,13 +32,48 @@ class User extends \core\MY_Controller
 
             $this->session->set_flashdata('error', 'Not validate ...');
 
-            redirect("user/index");
+            redirect("user/add");
         }
     }
+
     public function delete()
     {
         $id = $this->uri->segment(3);
         $this->user->delete_entity($id);
+
+        redirect("user/index");
+    }
+
+    public function profile_edit()
+    {
+
+        $id = $this->uri->segment(3);
+        if ($id == null) {
+            redirect("dashboard/index");
+        }
+
+        $data['title'] = "Edit Profile";
+        $data["row"] = $this->user->profile_get_entity($id);
+
+        $this->session->set_flashdata('success', 'Edited successfully ...');
+        $this->renderView("dashboard", "profile", $data);
+    }
+
+    public function send_info()
+    {
+        $id = $this->uri->segment(3);
+
+        $this->send_email($id);
+
+        redirect("user/index");
+    }
+
+    public function change_status()
+    {
+        $id = $this->uri->segment(3);
+
+        $this->user->change_status($id);
+        $this->session->set_flashdata('success', 'Your status has been changed');
 
         redirect("user/index");
     }

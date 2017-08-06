@@ -18,6 +18,38 @@ class Dashboard extends \core\MY_Controller
         $this->renderView("dashboard", "index", $data);
     }
 
+    public function profile()
+    {
+        $data["title"] = "Change Profile";
+        $data["row"] = $this->user->get_entity($_SESSION['user_id']);
+        $this->renderView("dashboard", "profile", $data);
+    }
+
+    public function profile_update()
+    {
+        $id = $_SESSION['user_id'];
+
+        if (isset($_REQUEST['profile_edit'])) {
+
+            $this->user->update_entity($id);
+            $user = $this->user->get_entity($id);
+            $data = Array(
+                'user_id' => $user->id,
+                'user_name' => $user->full_name,
+                'role_id' => $user->role_id,
+                'logged_in' => TRUE
+            );
+            $this->session->set_userdata($data);
+
+            $this->send_email($id);
+
+        } else {
+            $this->session->set_flashdata('error', 'Not validate ...');
+        }
+
+        redirect("dashboard/profile");
+    }
+
     public function report()
     {
         if (isset($_REQUEST["status"])) {
@@ -88,5 +120,6 @@ class Dashboard extends \core\MY_Controller
 
         $this->renderView("dashboard", "report", $data);
     }
+
 }
 

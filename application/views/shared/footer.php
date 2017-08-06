@@ -87,6 +87,32 @@
         });
     }
 
+    function sendEmailUser(id) {
+        swal({
+            title: 'Send email to user for username and password',
+            type: 'info',
+            showCloseButton: true,
+            showCancelButton: true,
+            confirmButtonText: 'Yes',
+            cancelButtonText: 'No'
+        }).then(function () {
+            window.location = '<?php echo base_url('user/send_info/')?>' + id;
+        });
+    }
+
+    function askToChangeStatus(id) {
+        swal({
+            title: 'You are sure want to change status?',
+            type: 'warning',
+            showCloseButton: true,
+            showCancelButton: true,
+            confirmButtonText: 'Yes',
+            cancelButtonText: 'No'
+        }).then(function () {
+            window.location = '<?php echo base_url('user/change_status/')?>' + id;
+        });
+    }
+
     $(function () {
 
         $.fn.tableExport.bootstrap = ["btn", "btn-link", "btn-toolbar"];

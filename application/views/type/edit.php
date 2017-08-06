@@ -1,6 +1,8 @@
 <?php
-echo form_open("type/edit", "class='myform' style=\"width:30% !important;\"");
+echo form_open("type/update", "class='myform' style=\"width:30% !important;\"");
 ?>
+<input type="hidden" name="id" value="<?php echo $row->id; ?>" >
+
 <div class="form-inline">
     <label for="name"> Name</label>
     <input type="text" class="form-control" id="name" name="name" value="<?php echo $row->name; ?>" required>
