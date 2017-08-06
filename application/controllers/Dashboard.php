@@ -116,6 +116,8 @@ class Dashboard extends \core\MY_Controller
             $data['results'] = $this->inventory->get_entities_by_type($config["per_page"], $page, $type->id);
         }
 
+        $data['locations'] = $this->inventory->get_locations();
+
         $this->session->set_flashdata('info', 'Data is loading...');
 
         $this->renderView("dashboard", "report", $data);
