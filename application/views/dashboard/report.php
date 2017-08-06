@@ -1,4 +1,4 @@
-<form class="navbar-form" role="search" action=" {{ base_url }}search/search_keyword" method = "post" style="width:500px; margin:0 auto;">
+<form class="navbar-form" role="search" action="" method = "post" style="float:right;">
     <div class="input-group">
         <input type="text" class="form-control" placeholder="Search" name = "keyword"size="15px; ">
         <div class="input-group-btn" style="margin-top:30px;">
@@ -10,8 +10,9 @@
         <option value="1">All</option>
     </select>
 </form>
+<div class="clearfix"></div>
 <div class="table-responsive">
-    <table class="table table-bordered table-striped" id="pivot-table">
+    <table class="table table-bordered table-striped"  id="pivot-table">
         <thead>
         <tr>
             <th>Type</th>

@@ -2,7 +2,7 @@
     <a href="<?php echo site_url('inventory/add'); ?>" class="btn btn-primary"><span
                 class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add</a>
 </p>
-<form class="navbar-form pull-right" role="search" action="" method="post" style="margin-top: -50px;">
+<form class="navbar-form" role="search" action="" method="post" style="float: right; margin-top: -50px;">
     <div class="input-group">
         <input type="text" class="form-control" placeholder="Search" name="keyword" size="15px; ">
         <div class="input-group-btn" style="margin-top:30px;">
@@ -17,7 +17,7 @@
         <?php } ?>
     </select>
 </form>
-
+<div class="clearfix"></div>
 <div class="table-responsive">
     <table class="table table-bordered table-striped" id="pivot-table">
         <thead>
