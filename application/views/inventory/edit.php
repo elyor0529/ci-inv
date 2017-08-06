@@ -1,13 +1,18 @@
 <?php
-echo form_open("inventory/update", "class='form-inline myform'");
+echo form_open_multipart("inventory/update", "class='form-inline myform'");
 ?>
     <input name="id" value="<?php echo $row->id; ?>" type="hidden"/>
 
     <div class="row">
         <div class="col-md-6 col-lg-6 col-md-offset-3">
-
             <div class="form-group">
-                <label for="type_id">Item Type</label>
+                <label for="img" style="margin-top: 10px;">Image</label>
+                <input type="file" accept="image/*" class="form-control-file" name="file" id="file"
+                       aria-describedby="fileHelp">
+                <small id="fileHelp" class="form-text text-muted">JPG,PNG and JPEG.</small>
+            </div>
+            <div class="form-group">
+                <label for="type_id">Type</label>
                 <select name="type_id" class="form-control" id="type_id" required>
                     <option value="0"> Please select</option>
                     <?php
@@ -24,7 +29,7 @@ echo form_open("inventory/update", "class='form-inline myform'");
                 </select>
             </div>
             <div class="form-group">
-                <label for="name">Item Name</label>
+                <label for="name">Name</label>
                 <input type="text" name="name" id="name" class="form-control" value="<?php echo $row->name; ?>"
                        required>
             </div>
@@ -68,7 +73,8 @@ echo form_open("inventory/update", "class='form-inline myform'");
             </div>
             <div class="form-group">
                 <label for="date">Date</label>
-                <input type="date" name="date" id="date" class="form-control" value="<?php echo $row->date;?>" required>
+                <input type="date" name="date" id="date" class="form-control" value="<?php echo $row->date; ?>"
+                       required>
             </div>
             <input type="submit" name="edit" class="btn btn-primary btn_style" value="Update"/>
 

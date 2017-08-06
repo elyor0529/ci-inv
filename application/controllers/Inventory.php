@@ -9,6 +9,7 @@ class Inventory extends \core\MY_Controller
         parent:: __construct();
 
         $this->load->library("pagination");
+        $this->load->helper('form');
     }
 
     public function index()
@@ -49,7 +50,7 @@ class Inventory extends \core\MY_Controller
 
     public function add()
     {
-        $data['title'] = "Add Items";
+        $data['title'] = "Add";
 
         $this->session->set_flashdata('warning', 'Please enter required fields...');
 
@@ -59,16 +60,22 @@ class Inventory extends \core\MY_Controller
     public function save()
     {
         if (isset($_REQUEST["save"])) {
-            $this->inventory->insert_entity();
-            $this->session->set_flashdata('success', 'Saved successfully ...');
 
-            redirect("inventory/index");
+            $img = $this->do_upload();
+
+            if ($img["success"] == true) {
+                $this->inventory->insert_entity($img["file"]);
+                $this->session->set_flashdata('success', 'Saved successfully ...');
+
+                redirect("inventory/index");
+            } else {
+                $this->session->set_flashdata('error', $img["error"]);
+            }
         } else {
-
             $this->session->set_flashdata('error', 'Not validate ...');
-
-            redirect("inventory/add");
         }
+
+        redirect("inventory/add");
     }
 
     public function edit()
@@ -78,7 +85,7 @@ class Inventory extends \core\MY_Controller
             redirect("inventory/add");
         }
 
-        $data['title'] = "Edit Items";
+        $data['title'] = "Edit";
         $data["row"] = $this->inventory->get_entity($id);
 
         $this->session->set_flashdata('success', 'Edited successfully ...');
@@ -89,13 +96,17 @@ class Inventory extends \core\MY_Controller
     {
         $id = $_REQUEST['id'];
 
-        echo $id;
-
         if (isset($_REQUEST['edit'])) {
 
-            $this->inventory->update_entity($id);
+            $img = $this->do_upload();
 
-            redirect("inventory/index");
+            if ($img["success"]) {
+                $this->inventory->update_entity($id, $img["file"]);
+
+                redirect("inventory/index");
+            } else {
+                $this->session->set_flashdata('error', $img["error"]);
+            }
         } else {
 
             $this->session->set_flashdata('error', 'Not validate ...');
@@ -110,7 +121,7 @@ class Inventory extends \core\MY_Controller
         $this->inventory->delete_entity($id);
         $this->session->set_flashdata('success', 'Deleted successfully ...');
 
-       redirect("inventory/index");
+        redirect("inventory/index");
     }
 
     public function filter()
@@ -145,6 +156,21 @@ class Inventory extends \core\MY_Controller
 
         $this->session->set_flashdata('info', 'Data is loading...');
         $this->renderView("inventory", "index", $data);
+    }
+
+    public function do_upload()
+    {
+        $config['upload_path'] = './assets/upload/';
+        $config['allowed_types'] = 'jpg|png';
+        $config['max_size'] = 10 * 1024;
+        $config['overwrite'] = true;
+        $this->load->library('upload', $config);
+
+        if (!$this->upload->do_upload('file')) {
+            return array(success => false, error => $this->upload->display_errors());
+        }
+
+        return array(success => true, file => $this->upload->data('file_name'));
     }
 
 }

@@ -9,6 +9,7 @@ class Inventory_model extends CI_Model
 
     //properties
     public $id;
+    public $img;
     public $type_id;
     public $name;
     public $quantity;
@@ -69,8 +70,9 @@ class Inventory_model extends CI_Model
         return $rows->num_rows();
     }
 
-    public function insert_entity()
+    public function insert_entity($img)
     {
+        $this->img = $img;
         $this->user_id = $_SESSION["user_id"];
         $this->type_id = $_REQUEST["type_id"];
         $this->name = $_REQUEST["name"];
@@ -92,10 +94,11 @@ class Inventory_model extends CI_Model
         return $rows[0];
     }
 
-    public function update_entity($id)
+    public function update_entity($id, $img)
     {
 
         $this->id = $id;
+        $this->img = $img;
         $this->user_id = $_SESSION["user_id"];
         $this->type_id = $_REQUEST["type_id"];
         $this->name = $_REQUEST["name"];
