@@ -68,7 +68,7 @@ echo form_open("inventory/update", "class='form-inline myform'");
             </div>
             <div class="form-group">
                 <label for="date">Date</label>
-                <input type="date" name="date" id="date" class="form-control" required>
+                <input type="date" name="date" id="date" class="form-control" value="<?php echo $row->date;?>" required>
             </div>
             <input type="submit" name="edit" class="btn btn-primary btn_style" value="Update"/>
 
