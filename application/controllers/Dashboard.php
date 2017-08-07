@@ -82,9 +82,7 @@ class Dashboard extends \core\MY_Controller
             $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
             $data["pager"] = $this->pagination->create_links();
             $data['results'] = $this->inventory->get_entities_by_status($config["per_page"], $page, $status->id);
-        }
-
-        if (isset($_REQUEST["type"])) {
+        } elseif (isset($_REQUEST["type"])) {
             $type = $this->inventorytype->get_entity($_REQUEST["type"]);
             $data["title"] = "Report by type '" . $type->name . "'";
 
@@ -114,8 +112,36 @@ class Dashboard extends \core\MY_Controller
             $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
             $data["pager"] = $this->pagination->create_links();
             $data['results'] = $this->inventory->get_entities_by_type($config["per_page"], $page, $type->id);
-        }
+        } else {
+            $data["title"] = "All report";
 
+            $config['base_url'] = base_url() . 'dashboard/report';
+            $config['total_rows'] = $this->inventory->total_records();
+            $config['per_page'] = 10;
+            $config["uri_segment"] = 3;
+            $config['full_tag_open'] = '<ul class="pagination paging-3d">';
+            $config['full_tag_close'] = '</ul>';
+            $config['first_link'] = false;
+            $config['last_link'] = false;
+            $config['first_tag_open'] = '<li>';
+            $config['first_tag_close'] = '</li>';
+            $config['prev_link'] = '&laquo';
+            $config['prev_tag_open'] = '<li class="prev">';
+            $config['prev_tag_close'] = '</li>';
+            $config['next_link'] = '&raquo';
+            $config['next_tag_open'] = '<li>';
+            $config['next_tag_close'] = '</li>';
+            $config['last_tag_open'] = '<li>';
+            $config['last_tag_close'] = '</li>';
+            $config['cur_tag_open'] = '<li class="active"><a href="#">';
+            $config['cur_tag_close'] = '</a></li>';
+            $config['num_tag_open'] = '<li>';
+            $config['num_tag_close'] = '</li>';
+            $this->pagination->initialize($config);
+            $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+            $data["pager"] = $this->pagination->create_links();
+            $data['results'] = $this->inventory->paging_entities($config["per_page"], $page);
+        }
         $data['locations'] = $this->inventory->get_locations();
 
         $this->session->set_flashdata('info', 'Data is loading...');

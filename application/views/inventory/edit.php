@@ -7,8 +7,7 @@ echo form_open_multipart("inventory/update", "class='form-inline myform'");
         <div class="col-md-6 col-lg-6 col-md-offset-3">
             <div class="form-group">
                 <label for="img" style="margin-top: 10px;">Image</label>
-                <input type="file" accept="image/*" class="form-control-file" name="file" id="file"
-                       aria-describedby="fileHelp">
+                <input type="file" accept="image/*" class="form-control-file" name="file" id="file" aria-describedby="fileHelp">
                 <small id="fileHelp" class="form-text text-muted">JPG,PNG and JPEG.</small>
             </div>
             <div class="form-group">
@@ -35,7 +34,7 @@ echo form_open_multipart("inventory/update", "class='form-inline myform'");
             </div>
             <div class="form-group">
                 <label for="quantity">Quantity</label>
-                <input type="numeric" name="quantity" id="quantity" class="form-control"
+                <input type="number" name="quantity" id="quantity" class="form-control"
                        value="<?php echo $row->quantity; ?>"
                        required>
             </div>
@@ -52,7 +51,7 @@ echo form_open_multipart("inventory/update", "class='form-inline myform'");
             </div>
             <div class="form-group">
                 <label for="size">Size</label>
-                <input type="numeric" name="size" id="size" class="form-control" value="<?php echo $row->size; ?>">
+                <input type="number" name="size" id="size" class="form-control" value="<?php echo $row->size; ?>">
             </div>
             <div class="form-group">
                 <label for="status_id">Status</label>

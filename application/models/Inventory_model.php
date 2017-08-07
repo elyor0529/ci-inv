@@ -23,6 +23,9 @@ class Inventory_model extends CI_Model
     //members
     public function paging_entities($limit, $offset)
     {
+        if ($_SESSION["role_id"] == ROLE_USER) {
+            $this->db->where('user_id', $_SESSION["user_id"]);
+        }
         $this->db->order_by('id', 'DESC');
         $rows = $this->db->get(SELF::ENT_NAME, $limit, $offset)->result();
 
@@ -40,6 +43,11 @@ class Inventory_model extends CI_Model
     public function get_entities_by_status($limit, $offset, $status)
     {
         $this->db->where('status_id', $status);
+
+        if ($_SESSION["role_id"] == ROLE_USER) {
+            $this->db->where('user_id', $_SESSION["user_id"]);
+        }
+
         $this->db->order_by('id', 'DESC');
         $rows = $this->db->get(SELF::ENT_NAME, $limit, $offset)->result();
 
@@ -57,6 +65,9 @@ class Inventory_model extends CI_Model
     public function get_entities_by_type($limit, $offset, $type)
     {
         $this->db->where('type_id', $type);
+        if ($_SESSION["role_id"] == ROLE_USER) {
+            $this->db->where('user_id', $_SESSION["user_id"]);
+        }
         $this->db->order_by('id', 'DESC');
         $rows = $this->db->get(SELF::ENT_NAME, $limit, $offset)->result();
 
@@ -135,5 +146,10 @@ class Inventory_model extends CI_Model
 
         return $rows[0];
     }
+
+    public function get_search(){
+
+    }
+
 
 }

@@ -18,12 +18,13 @@
     <table class="table table-bordered table-striped" id="pivot-table">
         <thead>
         <tr>
+            <th>Image</th>
             <th>Type</th>
             <th>Name</th>
             <th>Quantity</th>
             <th>Serial Number</th>
             <th>Location</th>
-            <th>Size</th>
+            <th>Size (inch)</th>
             <th>Status</th>
             <th>Date</th>
         </tr>
@@ -31,8 +32,15 @@
         <tbody>
         <?php
         foreach ($results as $row) {
+
+            $img = base_url('/assets/upload/' . $row->img);
             ?>
             <tr>
+                <td class="text-center">
+                    <a href="<?php echo $img; ?>" target="_blank">
+                        <image width="80" height="60" class="img-rounded" src="<?php echo $img; ?>"/>
+                    </a>
+                </td>
                 <?php foreach ($types as $type) {
                     if ($type->id == $row->type_id) {
                         ?>

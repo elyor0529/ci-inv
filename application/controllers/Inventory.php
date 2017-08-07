@@ -68,8 +68,8 @@ class Inventory extends \core\MY_Controller
                 $this->session->set_flashdata('success', 'Saved successfully ...');
 
                 redirect("inventory/index");
-            } else {
-                $this->session->set_flashdata('error', $img["error"]);
+           } else {
+               $this->session->set_flashdata('error', $img["error"]);
             }
         } else {
             $this->session->set_flashdata('error', 'Not validate ...');
@@ -166,12 +166,15 @@ class Inventory extends \core\MY_Controller
         $config['overwrite'] = true;
         $this->load->library('upload', $config);
 
-        if (!$this->upload->do_upload('file')) {
-            return array(success => false, error => $this->upload->display_errors());
+       if (!$this->upload->do_upload('file')) {
+            return array(success => true, file => $this->upload->display_errors());
         }
 
         return array(success => true, file => $this->upload->data('file_name'));
     }
 
-}
+
+
+
+    }
 

@@ -25,7 +25,7 @@ echo form_open_multipart("inventory/save", "class='myform'");
         </div>
         <div class="form-group">
             <label for="quantity">Quantity</label>
-            <input type="numeric" name="quantity" id="quantity" class="form-control" required palceholder="Quantity...">
+            <input type="number" name="quantity" id="quantity" class="form-control" required palceholder="Quantity...">
         </div>
         <div class="form-group">
             <label for="serial_number">Serial Number</label>
@@ -38,15 +38,14 @@ echo form_open_multipart("inventory/save", "class='myform'");
         </div>
         <div class="form-group">
             <label for="size">Size</label>
-            <input type="numeric" name="size" id="size" class="form-control" palceholder="Size...">
+            <input type="number" name="size" id="size" class="form-control" palceholder="Size...">
         </div>
         <div class="form-group">
             <label for="status_id">Status</label>
             <select name="status_id" class="form-control" id="status_id" required>
                 <option value="0"> Please select</option>
                 <?php
-                foreach ($statuses as $status) {
-                    ?>
+                foreach ($statuses as $status) { ?>
                     <option value="<?php echo $status->id; ?>"><?php echo $status->name; ?></option>
                 <?php } ?>
             </select>

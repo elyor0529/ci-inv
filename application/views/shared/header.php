@@ -232,6 +232,9 @@
                                     class="fa fa-fw fa-files-o fa-2x"></i>Reports<i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="report-list" class="collapse">
                             <li>
+                                <a href="<?php echo base_url("/dashboard/report") ?>"><i class="fa fa-fw fa-list fa-2x"></i> All</a>
+                            </li>
+                            <li>
                                 <a href="javascript:;" class="dropdown" data-toggle="collapse"
                                    data-target="#status-list">
                                     <i class="fa fa-fw fa-share-square-o"></i> By Status <i

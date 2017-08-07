@@ -30,14 +30,14 @@
             <td>
                 <?php if ($row->is_active > 0) { ?>
                     <strong class="text-success">Yes</strong>
-                    <?php if ($row->role_id != 1) { ?>
+                    <?php if ($row->role_id != ROLE_ADMIN) { ?>
                         /   <a href="#" onclick="askToChangeStatus(<?php echo $row->id ?>)" class="text-danger">Deactivate</a>
                     <?php } ?>
                 <?php } else { ?>
                     <strong class="text-danger">No</strong>
-                <?php if ($row->role_id != 1) { ?>
-
-                    /  <a href="#" onclick="askToChangeStatus(<?php echo $row->id ?>)" class="text-success">Activate</a>
+                    <?php if ($row->role_id != ROLE_ADMIN) { ?>
+                        /  <a href="#" onclick="askToChangeStatus(<?php echo $row->id ?>)"
+                              class="text-success">Activate</a>
                     <?php } ?>
 
                 <?php } ?>
