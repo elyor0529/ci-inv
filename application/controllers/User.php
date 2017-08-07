@@ -12,7 +12,7 @@ class User extends \core\MY_Controller
 
         $this->renderView("user", "index", $data);
     }
-
+    
     public function add()
     {
         $data["title"] = "Add Users";
