@@ -147,4 +147,35 @@ class Inventory_model extends CI_Model
         return $rows[0];
     }
 
+    public function total_record()
+    {
+
+        $rows = $this->db->get(SELF::ENT_NAME)->num_rows();
+
+        return $rows;
+    }
+
+    public function get_count_by_status($status_id)
+    {
+        $this->db->where('status_id', $status_id);
+        $rows = $this->db->get(SELF::ENT_NAME)->num_rows();
+
+        return $rows;
+    }
+    public function total_record_operator()
+    {
+
+        $rows = $this->db->get(SELF::ENT_NAME)->num_rows();
+
+        return $rows;
+    }
+
+    public function get_count_by_operator($status_id)
+    {
+        $this->db->where('status_id', $status_id);
+        $rows = $this->db->get(SELF::ENT_NAME)->num_rows();
+
+        return $rows;
+    }
+
 }
