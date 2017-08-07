@@ -15,6 +15,12 @@ class Dashboard extends \core\MY_Controller
     {
         $data["title"] = "Madinat Jumeirah";
 
+        if ($_SESSION["role_id"] == ROLE_ADMIN) {
+            $data["total_users"] = $this->user->total_record();
+            $data["total_active_users"] = $this->user->get_users_count_by_status(1);
+            $data["total_not_active_users"] = $this->user->get_users_count_by_status(0);
+        }
+
         $this->renderView("dashboard", "index", $data);
     }
 

@@ -87,4 +87,20 @@ class User_model extends CI_Model
         $this->db->where("id", $id);
         $this->db->update(SELF::ENT_NAME, $ent);
     }
+
+    public function total_record()
+    {
+        $rows = $this->db->get(SELF::ENT_NAME)->num_rows();
+
+        return $rows;
+    }
+
+    public function get_users_count_by_status($status)
+    {
+        $this->db->where('is_active', $status);
+        $rows = $this->db->get(SELF::ENT_NAME)->num_rows();
+
+        return $rows;
+    }
+
 }

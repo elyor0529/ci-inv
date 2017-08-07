@@ -147,9 +147,4 @@ class Inventory_model extends CI_Model
         return $rows[0];
     }
 
-    public function get_search(){
-
-    }
-
-
 }
