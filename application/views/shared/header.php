@@ -6,12 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php echo $title; ?></title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <link rel="icon" type="decor  ated-typography-set-2-number-7-16-244412.png"
-          href="<?php echo base_url("/assets/") ?>favicon/logo%202.png">
+    <link rel="stylesheet" href="<?php echo base_url("assets/") ?>css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo base_url("assets/") ?>css/bootstrap-theme.min.css">
+    <link rel="icon" type="decor  ated-typography-set-2-number-7-16-244412.png" href="<?php echo base_url("/assets/") ?>favicon/logo%202.png">
 
     <link rel="stylesheet" href="<?php echo base_url("assets/") ?>sweetalert2/sweetalert2.min.css">
     <link rel="stylesheet" href="<?php echo base_url("assets/") ?>TableExport/css/tableexport.css">
@@ -20,7 +17,7 @@
     <link href="<?php echo base_url("/assets/") ?>css/sb-admin.css" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+    <link rel="stylesheet" href="<?php echo base_url("assets/") ?>plugins/morris.css">
 
     <!-- Custom Fonts -->
     <link href="<?php echo base_url("assets/") ?>font-awesome/css/font-awesome.min.css" rel="stylesheet"

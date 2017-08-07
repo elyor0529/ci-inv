@@ -11,20 +11,17 @@
 <!-- /#page-wrapper -->
 
 </div><!-- /#wrapper -->
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="<?php echo base_url("assets/") ?>js/jquery.js"></script>
 <script src="<?php echo base_url("assets/") ?>sweetalert2/sweetalert2.min.js"></script>
 <script src="<?php echo base_url("assets/") ?>FileSaver/filesaver.min.js"></script>
 <script src="<?php echo base_url("assets/") ?>js-xlsx/xlsx.core.min.js"></script>
 <script src="<?php echo base_url("assets/") ?>TableExport/js/tableexport.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core. js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        crossorigin="anonymous"></script>
-<script type="text/javascript"
-        src="https://uxsolutions.github.io/bootstrap-datepicker/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+<script src="<?php echo base_url("assets/") ?>js/core.min.js"></script>
+<script src="<?php echo base_url("assets/") ?>js/bootstrap.min.js"></script>
+
 <!-- Morris Charts JavaScript -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+<script src="<?php echo base_url("assets/") ?>js/plugins/morris/raphael-min.js"></script>
+<script src="<?php echo base_url("assets/") ?>js/plugins/morris/morris.min.js"></script>
 <script src="<?php echo base_url("assets/") ?>js/plugins/morris/morris-data.js"></script>
 
 </body>
