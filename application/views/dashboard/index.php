@@ -13,7 +13,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="#">
+                <a href="<?php echo base_url('user/index')?>">
                     <div class="panel-footer">
                         <span class="pull-left">View Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -35,7 +35,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="#">
+                <a href="<?php echo base_url('user/index')?>">
                     <div class="panel-footer">
                         <span class="pull-left">View Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -49,7 +49,7 @@
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-xs-3">
-                            <i class="fa fa-user fa-5x"></i>
+                            <i class="fa fa-user fa-5x" aria-hidden="true"></i>
                         </div>
                         <div class="col-xs-9 text-right">
                             <div class="huge"><?php echo $total_not_active_users; ?></div>
@@ -57,7 +57,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="#">
+                <a href="<?php echo base_url('user/index')?>">
                     <div class="panel-footer">
                         <span class="pull-left">View Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -76,7 +76,7 @@
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-xs-3">
-                            <i class="fa fa-users fa-5x"></i>
+                            <i class="fa fa-file-archive-o fa-5x" aria-hidden="true"></i>
                         </div>
                         <div class="col-xs-9 text-right">
                             <div class="huge"><?php echo $total_status; ?></div>
@@ -84,7 +84,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="#">
+                <a href="<?php echo base_url('inventory/index')?>">
                     <div class="panel-footer">
                         <span class="pull-left">View Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -98,29 +98,7 @@
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-xs-3">
-                            <i class="fa fa-upload fa-5x"></i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge"><?php echo $old_status; ?></div>
-                            <div>OLD</div>
-                        </div>
-                    </div>
-                </div>
-                <a href="#">
-                    <div class="panel-footer">
-                        <span class="pull-left">View Details</span>
-                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                        <div class="clearfix"></div>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="panel panel-red">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-rss-square fa-5x"></i>
+                            <i class="fa fa-file-text fa-5x" aria-hidden="true"></i>
                         </div>
                         <div class="col-xs-9 text-right">
                             <div class="huge"><?php echo $new_status; ?></div>
@@ -128,7 +106,30 @@
                         </div>
                     </div>
                 </div>
-                <a href="#">
+                <a href="<?php echo base_url('inventory/index')?>">
+                    <div class="panel-footer">
+                        <span class="pull-left">View Details</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-yellow">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-file-text fa-5x" aria-hidden="true"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge"><?php echo $old_status; ?></div>
+                            <div>OLD</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="<?php echo base_url('inventory/index')?>">
                     <div class="panel-footer">
                         <span class="pull-left">View Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -142,7 +143,7 @@
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-xs-3">
-                            <i class="fa fa-rss-square fa-5x"></i>
+                            <i class="fa fa-file-text fa-5x" aria-hidden="true"></i>
                         </div>
                         <div class="col-xs-9 text-right">
                             <div class="huge"><?php echo $fada_status; ?></div>
@@ -150,7 +151,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="#">
+                <a href="<?php echo base_url('inventory/index')?>">
                     <div class="panel-footer">
                         <span class="pull-left">View Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -179,19 +180,19 @@
                 </div>
                 <a href="#">
                     <div class="panel-footer">
-                        <span class="pull-left">View Details</span>
-                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <span class="pull-left"></span>
+                        <span class="pull-right"><i class="fa fa-shield"></i></span>
                         <div class="clearfix"></div>
                     </div>
                 </a>
             </div>
         </div>
         <div class="col-lg-3 col-md-6">
-            <div class="panel panel-green">
+            <div class="panel panel-primary">
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-xs-3">
-                            <i class="fa fa-upload fa-5x"></i>
+                            <i class="fa fa-file-archive-o fa-5x" aria-hidden="true"></i>
                         </div>
                         <div class="col-xs-9 text-right">
                             <div class="huge"><?php echo $total; ?></div>
@@ -209,33 +210,11 @@
             </div>
         </div>
         <div class="col-lg-2 col-md-6">
-            <div class="panel panel-red">
+            <div class="panel panel-green">
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-xs-3">
-                            <i class="fa fa-rss-square fa-5x"></i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge"><?php echo $old_all; ?></div>
-                            <div>OLD</div>
-                        </div>
-                    </div>
-                </div>
-                <a href="#">
-                    <div class="panel-footer">
-                        <span class="pull-left">View Details</span>
-                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                        <div class="clearfix"></div>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="col-lg-2 col-md-6">
-            <div class="panel panel-red">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-rss-square fa-5x"></i>
+                            <i class="fa fa-file-text fa-5x" aria-hidden="true"></i>
                         </div>
                         <div class="col-xs-9 text-right">
                             <div class="huge"><?php echo $new_all; ?></div>
@@ -253,11 +232,34 @@
             </div>
         </div>
         <div class="col-lg-2 col-md-6">
+            <div class="panel panel-yellow">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-file-text fa-5x" aria-hidden="true"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge"><?php echo $old_all; ?></div>
+                            <div>OLD</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#">
+                    <div class="panel-footer">
+                        <span class="pull-left">View Details</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-lg-2 col-md-6">
             <div class="panel panel-red">
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-xs-3">
-                            <i class="fa fa-rss-square fa-5x"></i>
+                            <i class="fa fa-file-text fa-5x" aria-hidden="true"></i>
                         </div>
                         <div class="col-xs-9 text-right">
                             <div class="huge"><?php echo $fada_all; ?></div>

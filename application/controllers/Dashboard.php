@@ -22,7 +22,7 @@ class Dashboard extends \core\MY_Controller
 
         }
         if ($_SESSION["role_id"] == ROLE_USER){
-            $data["total_status"] = $this->inventory->total_record();
+            $data["total_status"] = $this->inventory->total_record($_SESSION["role_id"] == ROLE_USER);
             $data["old_status"] = $this->inventory->get_count_by_status(2);
             $data["new_status"] = $this->inventory->get_count_by_status(3);
             $data["fada_status"] = $this->inventory->get_count_by_status(4);

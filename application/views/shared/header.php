@@ -17,7 +17,7 @@
     <link href="<?php echo base_url("/assets/") ?>css/sb-admin.css" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
-    <link rel="stylesheet" href="<?php echo base_url("assets/") ?>plugins/morris.css">
+    <link rel="stylesheet" href="<?php echo base_url("assets/") ?>css/plugins/morris.css">
 
     <!-- Custom Fonts -->
     <link href="<?php echo base_url("assets/") ?>font-awesome/css/font-awesome.min.css" rel="stylesheet"
@@ -229,7 +229,7 @@
                                     class="fa fa-fw fa-files-o fa-2x"></i>Reports<i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="report-list" class="collapse">
                             <li>
-                                <a href="<?php echo base_url("/dashboard/report") ?>"><i class="fa fa-fw fa-list fa-2x"></i> All</a>
+                                <a href="<?php echo base_url("/dashboard/report") ?>"><i class="fa fa-fw fa-list fa-2x"></i> All </a>
                             </li>
                             <li>
                                 <a href="javascript:;" class="dropdown" data-toggle="collapse"
