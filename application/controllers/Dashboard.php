@@ -20,20 +20,11 @@ class Dashboard extends \core\MY_Controller
             $data["total_active_users"] = $this->user->get_users_count_by_status(1);
             $data["total_not_active_users"] = $this->user->get_users_count_by_status(0);
 
-        }
-        if ($_SESSION["role_id"] == ROLE_USER){
-            $data["total_status"] = $this->inventory->total_record($_SESSION["role_id"] == ROLE_USER);
+        } else {
+            $data["total_status"] = $this->inventory->total_record();
             $data["old_status"] = $this->inventory->get_count_by_status(2);
             $data["new_status"] = $this->inventory->get_count_by_status(3);
             $data["fada_status"] = $this->inventory->get_count_by_status(4);
-        }
-
-        if ($_SESSION["role_id"] == ROLE_OPERATOR){
-            $data["total_users"] = $this->user->total_record();
-            $data["total"] = $this->inventory->total_record_operator();
-            $data["old_all"] = $this->inventory->get_count_by_operator(2);
-            $data["new_all"] = $this->inventory->get_count_by_operator(3);
-            $data["fada_all"] = $this->inventory->get_count_by_operator(4);
         }
 
         $this->renderView("dashboard", "index", $data);

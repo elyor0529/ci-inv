@@ -49,11 +49,12 @@ class MY_Controller extends \CI_Controller
         $this->email->subject('Madinat Jumeirah  - User credentials');
         $this->email->message('Dear, ' . $_SESSION["user_name"] . ' ! <br/>Your credentials <br/> User-name: ' . $user->email . ' <br/> Password: ' . $user->password);
         $this->email->send();
-        $this->session->set_flashdata('success', 'Your profile has been changed.');
+        $this->session->set_flashdata('success', 'Meesage has been sent to user.');
 
-//        if ($this->email->send()) {
-//            echo 'Your email was sent, thanks ' . $_SESSION["user_name"] . '.';
-//        } else {
+         if ($this->email->send()) {
+            echo 'Your email was sent, thanks ' . $_SESSION["user_name"] . '.';
+         }
+ //        else {
 //            show_error($this->email->print_debugger());
 //        }
     }
