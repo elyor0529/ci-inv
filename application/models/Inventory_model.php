@@ -149,9 +149,10 @@ class Inventory_model extends CI_Model
 
     public function total_record()
     {
-        if($_SESSION['role_id'] == ROLE_USER){
+        if ($_SESSION['role_id'] == ROLE_USER) {
             $this->db->where('user_id', $_SESSION['user_id']);
         }
+
         $rows = $this->db->get(SELF::ENT_NAME)->num_rows();
 
         return $rows;
@@ -159,23 +160,32 @@ class Inventory_model extends CI_Model
 
     public function get_count_by_status($status_id)
     {
-        if($_SESSION['role_id'] == ROLE_USER){
+        if ($_SESSION['role_id'] == ROLE_USER) {
             $this->db->where('user_id', $_SESSION['user_id']);
         }
+
         $this->db->where('status_id', $status_id);
         $rows = $this->db->get(SELF::ENT_NAME)->num_rows();
 
         return $rows;
     }
-    public function get_search() {
-        $match = $this->input->post(‘search’, 'both');
-        $this->db->like(‘type_id’,$match);
-        $this->db->or_like(‘name’,$match);
-        $this->db->or_like(‘quantity’,$match);
-        $this->db->or_like(‘serial_number’,$match);
-        $this->db->or_like(‘location’,$match);
-        $this->db->or_like(‘status_id’,$match);
-        $this->db->or_like(‘date’,$match);
+
+    public function get_search($location, $q)
+    {
+
+        if ($_SESSION['role_id'] == ROLE_USER) {
+            $this->db->where('user_id', $_SESSION['user_id']);
+        }
+
+        if (isset($location)) {
+            $this->db->where('location', $location);
+        }
+
+        $this->db->like('name', $q);
+        $this->db->or_like('date', $q);
+        $this->db->or_like('size', $q);
+        $this->db->or_like('quantity', $q);
+        $this->db->or_like('serial_number', $q);
 
         $query = $this->db->get(SELF::ENT_NAME);
         return $query->result();

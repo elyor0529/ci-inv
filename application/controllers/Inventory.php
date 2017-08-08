@@ -42,7 +42,7 @@ class Inventory extends \core\MY_Controller
         $data["pager"] = $this->pagination->create_links();
         $data['results'] = $this->inventory->paging_entities($config["per_page"], $page);
         $data['locations'] = $this->inventory->get_locations();
-
+        //$data['query'] = $this->inventory->get_search();
         $this->session->set_flashdata('info', 'Data is loading...');
 
         $this->renderView("inventory", "index", $data);
@@ -154,6 +154,8 @@ class Inventory extends \core\MY_Controller
         $data["pager"] = $this->pagination->create_links();
         $data['results'] = $this->inventory->paging_entities($config["per_page"], $page);
 
+        
+
         $this->session->set_flashdata('info', 'Data is loading...');
         $this->renderView("inventory", "index", $data);
     }
@@ -172,14 +174,6 @@ class Inventory extends \core\MY_Controller
 
         return array(success => true, file => $this->upload->data('file_name'));
     }
-
-    public function search()
-    {
-        $data['query'] = $this->inventory->get_search();
-        $this->renderView("inventory", "index", $data);
-    }
-
-
 
 
 

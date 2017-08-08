@@ -2,11 +2,11 @@
     <a href="<?php echo site_url('inventory/add'); ?>" class="btn btn-primary"><span
                 class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add</a>
 </p>
-<form class="navbar-form" role="form" action="<?php echo base_url(). 'inventory/index'?>"  style="float: right; margin-top: -50px;">
+<form class="navbar-form" role="form" action="<?php echo base_url(). 'inventory/index'?>" style="float: right; margin-top: -50px;">
     <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search" name="search" size="15px; ">
+        <input type="text" class="form-control" placeholder="Search" name="q" id="q" size="15px; ">
         <div class="input-group-btn actions" style="margin-top:30px;">
-            <button class="btn btn-default " name="submit" id="search" type="submit" value="Search" style="margin-top:-1px !important;"><i class="glyphicon glyphicon-search"></i></button>
+            <button class="btn btn-default " type="submit" value="Search" style="margin-top:-1px !important;"><i class="glyphicon glyphicon-search"></i></button>
         </div>
     </div>
     <select class="form-control pull-left" id="location" name="location" style="margin-right: 20px;">
