@@ -112,9 +112,9 @@
             formats: ['xlsx', 'csv']
         });
 
-        setTimeout(function () {
-            $("#flash-message").fadeOut("slow");
-        }, 4000);
+        // setTimeout(function () {
+        //     $("#flash-message").fadeOut("slow");
+        // }, 5000);
 
     });
 
