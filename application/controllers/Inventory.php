@@ -173,6 +173,13 @@ class Inventory extends \core\MY_Controller
         return array(success => true, file => $this->upload->data('file_name'));
     }
 
+    public function search()
+    {
+        $data['query'] = $this->inventory->get_search();
+        $this->renderView("inventory", "index", $data);
+    }
+
+
 
 
 

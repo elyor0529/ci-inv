@@ -5,24 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php echo $title; ?></title>
+    <link rel="icon" type="decor  ated-typography-set-2-number-7-16-244412.png"
+          href="<?php echo base_url("/assets/") ?>favicon/logo%202.png">
 
     <link rel="stylesheet" href="<?php echo base_url("assets/") ?>css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo base_url("assets/") ?>css/bootstrap-theme.min.css">
-    <link rel="icon" type="decor  ated-typography-set-2-number-7-16-244412.png" href="<?php echo base_url("/assets/") ?>favicon/logo%202.png">
-
     <link rel="stylesheet" href="<?php echo base_url("assets/") ?>sweetalert2/sweetalert2.min.css">
     <link rel="stylesheet" href="<?php echo base_url("assets/") ?>TableExport/css/tableexport.css">
     <link rel="stylesheet" href="<?php echo base_url("assets/") ?>css/toggles-light.css">
-    <!-- Custom CSS -->
-    <link href="<?php echo base_url("/assets/") ?>css/sb-admin.css" rel="stylesheet">
-
-    <!-- Morris Charts CSS -->
-    <link rel="stylesheet" href="<?php echo base_url("assets/") ?>css/plugins/morris.css">
-
-    <!-- Custom Fonts -->
-    <link href="<?php echo base_url("assets/") ?>font-awesome/css/font-awesome.min.css" rel="stylesheet"
-          type="text/css">
-
+    <link rel="stylesheet" href="<?php echo base_url("/assets/") ?>css/sb-admin.css">
+    <link rel="stylesheet" href="<?php echo base_url("assets/") ?>font-awesome/css/font-awesome.min.css">
 
     <style>
         .form-group {
@@ -229,7 +221,8 @@
                                     class="fa fa-fw fa-files-o fa-2x"></i>Reports<i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="report-list" class="collapse">
                             <li>
-                                <a href="<?php echo base_url("/dashboard/report") ?>"><i class="fa fa-fw fa-list fa-2x"></i> All </a>
+                                <a href="<?php echo base_url("/dashboard/report") ?>"><i
+                                            class="fa fa-fw fa-list fa-2x"></i> All </a>
                             </li>
                             <li>
                                 <a href="javascript:;" class="dropdown" data-toggle="collapse"

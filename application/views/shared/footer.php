@@ -12,21 +12,12 @@
 
 </div><!-- /#wrapper -->
 <script src="<?php echo base_url("assets/") ?>js/jquery.js"></script>
+<script src="<?php echo base_url("assets/") ?>js/bootstrap.min.js"></script>
 <script src="<?php echo base_url("assets/") ?>sweetalert2/sweetalert2.min.js"></script>
 <script src="<?php echo base_url("assets/") ?>FileSaver/filesaver.min.js"></script>
 <script src="<?php echo base_url("assets/") ?>js-xlsx/xlsx.core.min.js"></script>
 <script src="<?php echo base_url("assets/") ?>TableExport/js/tableexport.min.js"></script>
 <script src="<?php echo base_url("assets/") ?>js/core.min.js"></script>
-<script src="<?php echo base_url("assets/") ?>js/bootstrap.min.js"></script>
-
-<!-- Morris Charts JavaScript -->
-<script src="<?php echo base_url("assets/") ?>js/plugins/morris/raphael-min.js"></script>
-<script src="<?php echo base_url("assets/") ?>js/plugins/morris/morris.min.js"></script>
-<script src="<?php echo base_url("assets/") ?>js/plugins/morris/morris-data.js"></script>
-
-</body>
-</html>
-
 
 <script type="text/javascript">
 
@@ -113,19 +104,21 @@
     $(function () {
 
         $.fn.tableExport.bootstrap = ["btn", "btn-link", "btn-toolbar"];
+
         $("#pivot-table").tableExport({
             bootstrap: true,
-            position: 'top-right',
+            position: 'top',
             footers: false,
             formats: ['xlsx', 'csv']
         });
-
 
         setTimeout(function () {
             $("#flash-message").fadeOut("slow");
         }, 4000);
 
-
     });
 
 </script>
+
+</body>
+</html>

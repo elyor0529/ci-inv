@@ -37,7 +37,7 @@ echo form_open_multipart("inventory/save", "class='myform'");
             <input type="text" name="location" id="location" required class="form-control" palceholder="Location...">
         </div>
         <div class="form-group">
-            <label for="size">Size</label>
+            <label for="size">Size (inch)</label>
             <input type="number" name="size" id="size" class="form-control" palceholder="Size...">
         </div>
         <div class="form-group">

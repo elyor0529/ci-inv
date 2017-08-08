@@ -47,7 +47,11 @@ class MY_Controller extends \CI_Controller
         $this->email->from("samandarmirzayev@gmail.com", 'Samandar Mirzaev');
         $this->email->to($user->email);
         $this->email->subject('Madinat Jumeirah  - User credentials');
-        $this->email->message('Dear, ' . $_SESSION["user_name"] . ' ! <br/>Your credentials <br/> User-name: ' . $user->email . ' <br/> Password: ' . $user->password);
+        $this->email->message('Dear, ' . $_SESSION["user_name"] . ' !
+       <br/> <br/>Your credentials <br/> User-name: ' . $user->email . '
+       <br/> Password: ' . $user->password . '
+       <br/> <br/> Best regards,
+       <br/> Jumeirah IT adminstration.');
         $this->email->send();
         $this->session->set_flashdata('success', 'Meesage has been sent to user.');
 

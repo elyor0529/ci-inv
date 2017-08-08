@@ -167,6 +167,19 @@ class Inventory_model extends CI_Model
 
         return $rows;
     }
+    public function get_search() {
+        $match = $this->input->post(‘search’, 'both');
+        $this->db->like(‘type_id’,$match);
+        $this->db->or_like(‘name’,$match);
+        $this->db->or_like(‘quantity’,$match);
+        $this->db->or_like(‘serial_number’,$match);
+        $this->db->or_like(‘location’,$match);
+        $this->db->or_like(‘status_id’,$match);
+        $this->db->or_like(‘date’,$match);
+
+        $query = $this->db->get(SELF::ENT_NAME);
+        return $query->result();
+    }
 
 
 }
