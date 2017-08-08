@@ -42,7 +42,6 @@ class Inventory extends \core\MY_Controller
         $data["pager"] = $this->pagination->create_links();
         $data['results'] = $this->inventory->paging_entities($config["per_page"], $page);
         $data['locations'] = $this->inventory->get_locations();
-        //$data['query'] = $this->inventory->get_search();
         $this->session->set_flashdata('info', 'Data is loading...');
 
         $this->renderView("inventory", "index", $data);

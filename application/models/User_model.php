@@ -27,16 +27,12 @@ class User_model extends CI_Model
         $this->db->where("username", $username);
         $this->db->where("password", $password);
 
-        $rows = $this->db->get(SELF::ENT_NAME)->result();
-
-        return $rows[0];
+        return $this->db->get(SELF::ENT_NAME)->result()[0]; 
     }
 
     public function get_entities()
     {
-        $rows = $this->db->get(SELF::ENT_NAME)->result();
-
-        return $rows;
+        return $this->db->get(SELF::ENT_NAME)->result(); 
     }
 
     public function insert_entity()
@@ -90,17 +86,14 @@ class User_model extends CI_Model
 
     public function total_record()
     {
-        $rows = $this->db->get(SELF::ENT_NAME)->num_rows();
-
-        return $rows;
+        return $this->db->get(SELF::ENT_NAME)->num_rows();
     }
 
     public function get_users_count_by_status($status)
     {
         $this->db->where('is_active', $status);
-        $rows = $this->db->get(SELF::ENT_NAME)->num_rows();
-
-        return $rows;
+        
+        return $this->db->get(SELF::ENT_NAME)->num_rows();
     }
 
 }
