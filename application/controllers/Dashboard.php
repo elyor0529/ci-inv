@@ -27,6 +27,10 @@ class Dashboard extends \core\MY_Controller
             $data["fada_status"] = $this->inventory->get_count_by_status(4);
         }
 
+        if ($_SESSION["role_id"] == ROLE_OPERATOR) {
+            $data["is_dashboard"] = true;
+        }
+
         $this->renderView("dashboard", "index", $data);
     }
 
@@ -161,5 +165,16 @@ class Dashboard extends \core\MY_Controller
         $this->renderView("dashboard", "report", $data);
     }
 
+
+    public function inventory_monitoring()
+    {
+        header("Content-Type: application/json");
+        $result = $this->inventory->get_monitoring();
+        $json = json_encode($result);
+
+        echo $json;
+
+        return $json;
+    }
 }
 

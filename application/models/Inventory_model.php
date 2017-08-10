@@ -22,9 +22,9 @@ class Inventory_model extends CI_Model
 
     //members
     public function paging_entities($limit, $offset)
-    { 
+    {
         $this->db->order_by('id', 'DESC');
-        
+
         $this->do_search();
 
         return $this->db->get(SELF::ENT_NAME, $limit, $offset)->result();
@@ -44,7 +44,7 @@ class Inventory_model extends CI_Model
         $this->db->where('status_id', $status);
 
         $this->do_search();
- 
+
         $this->db->order_by('id', 'DESC');
 
         return $this->db->get(SELF::ENT_NAME, $limit, $offset)->result();
@@ -53,7 +53,7 @@ class Inventory_model extends CI_Model
     public function filter_type_records($type)
     {
         $this->db->where('type_id', $type);
-        
+
         $this->do_search();
 
         return $this->db->get(SELF::ENT_NAME)->num_rows();
@@ -62,9 +62,9 @@ class Inventory_model extends CI_Model
     public function get_entities_by_type($limit, $offset, $type)
     {
         $this->db->where('type_id', $type);
- 
+
         $this->do_search();
-        
+
         $this->db->order_by('id', 'DESC');
 
         return $this->db->get(SELF::ENT_NAME, $limit, $offset)->result();
@@ -129,20 +129,24 @@ class Inventory_model extends CI_Model
     {
         $this->db->distinct();
         $this->db->select("location");
-        
-        return $this->db->get(SELF::ENT_NAME)->result(); 
+
+        $this->set_current_user();
+
+        return $this->db->get(SELF::ENT_NAME)->result();
     }
 
-    public function location_entity($id)
+    public function get_monitoring()
     {
-        $this->db->where('id', $id);
+        $this->db->select('location, COUNT(location) as total');
+        $this->db->group_by('location');
+        $this->db->order_by('total', 'DESC');
 
-        return $this->db->get(SELF::ENT_NAME)->result()[0];
+        return $this->db->get(SELF::ENT_NAME, 10)->result();
     }
 
     public function total_record()
     {
-        
+
         $this->do_search();
 
         return $this->db->get(SELF::ENT_NAME)->num_rows();
@@ -157,25 +161,32 @@ class Inventory_model extends CI_Model
         return $this->db->get(SELF::ENT_NAME)->num_rows();
     }
 
-    public function do_search()
+    private function do_search()
     {
 
-        if ($_SESSION['role_id'] == ROLE_USER) {
-            $this->db->where('user_id', $_SESSION['user_id']);
+        $this->set_current_user();
+
+        $location = array_key_exists("location", $_GET) ? $_GET["location"] : "";
+        if (isset($location) && strlen(trim($location)) > 0) {
+            $this->db->where('location', $location);
         }
 
-        $location=array_key_exists("location", $_GET)? $_GET["location"]:"";
-        if (isset($location) && strlen(trim($location))>0) {
-            $this->db->where('location', $location);
-        }   
-
-        $q=array_key_exists("q", $_GET)? $_GET["q"]:"";
-        if(isset($q) && strlen(trim($q))>0){
+        $q = array_key_exists("q", $_GET) ? $_GET["q"] : "";
+        if (isset($q) && strlen(trim($q)) > 0) {
             $this->db->like('name', $q);
             $this->db->or_like('date', $q);
             $this->db->or_like('size', $q);
             $this->db->or_like('quantity', $q);
             $this->db->or_like('serial_number', $q);
+        }
+
+    }
+
+    private function set_current_user()
+    {
+
+        if ($_SESSION['role_id'] == ROLE_USER) {
+            $this->db->where('user_id', $_SESSION['user_id']);
         }
 
     }

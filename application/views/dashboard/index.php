@@ -145,3 +145,10 @@
         </div>
     </div>
 <?php } ?>
+<?php if ($_SESSION["role_id"] == ROLE_OPERATOR) { ?>
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div id="chartdiv"></div>
+        </div>
+    </div>
+<?php } ?>

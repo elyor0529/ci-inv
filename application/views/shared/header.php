@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="<?php echo base_url("assets/") ?>css/toggles-light.css">
     <link rel="stylesheet" href="<?php echo base_url("assets/") ?>css/sb-admin.css">
     <link rel="stylesheet" href="<?php echo base_url("assets/") ?>font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo base_url("assets/") ?>amcharts/plugins/export/export.css" type="text/css"
+          media="all"/>
 
     <style>
         .form-group {
@@ -144,6 +146,17 @@
         .slider.round:before {
             border-radius: 50%;
         }
+
+        #chartdiv {
+            width: 100%;
+            height: 500px;
+        }
+
+.amcharts-chart-div a {
+	display:none !important;
+}
+
+
 
     </style>
 

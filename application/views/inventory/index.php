@@ -21,7 +21,7 @@
     <table class="table table-bordered table-striped" id="pivot-table">
         <thead>
         <tr>
-            <th class="text-center">Image</th>
+            <th></th>
             <th>Type</th>
             <th>Name</th>
             <th>Quantity</th>
