@@ -8,8 +8,9 @@ class Role extends \core\MY_Controller
     {
         $data["title"] = "Roles";
         $data['rows'] = $this->role->get_entities();
-
+  
         $this->renderView("role", "index", $data);
+        
     }
 
 }

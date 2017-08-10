@@ -12,6 +12,12 @@ class MY_Controller extends \CI_Controller
 
         $this->load->helper("url");
         $this->load->library('session');
+
+        if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
+            //echo  "Already logged in";
+        } else {
+            redirect("auth/login");
+        }
     }
 
     protected function renderView($controller, $action, $data = null)
@@ -53,14 +59,13 @@ class MY_Controller extends \CI_Controller
        <br/> <br/> Best regards,
        <br/> Jumeirah IT adminstration.');
         $this->email->send();
-        $this->session->set_flashdata('success', 'Meesage has been sent to user.');
+        $this->session->set_flashdata('success', 'Message has been sent to user.');
 
-         if ($this->email->send()) {
-            echo 'Your email was sent, thanks ' . $_SESSION["user_name"] . '.';
-         }
- //        else {
-//            show_error($this->email->print_debugger());
-//        }
+        if ($this->email->send()) {
+            //echo 'Your email was sent, thanks ' . $_SESSION["user_name"] . '.';
+        } else {
+            // show_error($this->email->print_debugger());
+        }
     }
 
 }

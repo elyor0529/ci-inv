@@ -8,20 +8,21 @@
 
     <link rel="stylesheet" href="<?php echo base_url("assets/") ?>css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo base_url("assets/") ?>css/bootstrap-theme.min.css">
-    <link rel="icon" type="decor  ated-typography-set-2-number-7-16-244412.png" href="<?php echo base_url("/assets/") ?>favicon/logo%202.png">
+    <link rel="icon" type="decor  ated-typography-set-2-number-7-16-244412.png"
+          href="<?php echo base_url("/assets/") ?>favicon/logo%202.png">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style>
-        body{
-            background-image: url("../assets/favicon/mj1.jpg");
+        body {
+            background-image: url("<?php echo base_url("assets/") ?>favicon/mj1.jpg");
             background-repeat: repeat;
             background-size: cover;
-
         }
-        .container{
+
+        .container {
             width: 300px;
             border: 2px;
             margin-top: 100px;
@@ -49,9 +50,10 @@
 <body>
 
 <div class="container">
-    <form class="form-signin" method="post" action="<?php echo site_url('main/login_validation'); ?>">
+    <form class="form-signin" method="post" action="<?php echo site_url('auth/login_validation'); ?>">
         <h2 class="form-signin-heading" style="text-align:center; text-shadow:3px 2px 4px rgba(0,0,0,.5);">
-            <image src="../assets/favicon/logo%202.png" alt="logo" width="40px">MJ Inventory</h2>
+            <image src="<?php echo base_url("assets/") ?>favicon/logo%202.png" alt="logo" width="40px">MJ Inventory
+        </h2>
 
         <?php if (isset($_SESSION["error"])) { ?>
             <div class="alert alert-danger alert-dismissible fade in" role=alert>
