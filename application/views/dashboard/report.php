@@ -26,6 +26,7 @@
             <th>Location</th>
             <th>Size (inch)</th>
             <th>Status</th>
+            <th>Description</th>
             <th>Date</th>
         </tr>
         </thead>
@@ -59,7 +60,7 @@
                         <td><?php echo $status->name ?></td>
                     <?php }
                 } ?>
-
+                <td><?php echo $row->description ?></td>
                 <td><?php echo date("d/m/Y"); ?></td>
             </tr>
             <?php

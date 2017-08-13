@@ -25,6 +25,13 @@ class MY_Controller extends \CI_Controller
         $data['types'] = $this->inventorytype->get_entities();
         $data['statuses'] = $this->inventorystatus->get_entities();
 
+
+        if ($_SESSION["role_id"] == ROLE_OPERATOR) {
+            $data["is_dashboard"] = true;
+        } else {
+            $data["is_dashboard"] = false;
+        }
+
         $this->load->view('/shared/header', $data);
         $this->load->view($controller . '/' . $action, $data);
         $this->load->view('/shared/footer', $data);

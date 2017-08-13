@@ -29,6 +29,7 @@
             <th>Location</th>
             <th>Size (inch)</th>
             <th>Status</th>
+            <th>Description</th>
             <th>Date</th>
             <th></th>
         </tr>
@@ -69,6 +70,7 @@
                         }
                     } ?>
                 </td>
+                <td><?php echo $row->description ?></td>
                 <td><?php echo $row->date ?></td>
                 <td class="text-center">
                     <a href="<?php echo site_url('inventory/edit/' . $row->id); ?>"

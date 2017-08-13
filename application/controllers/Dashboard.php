@@ -27,10 +27,6 @@ class Dashboard extends \core\MY_Controller
             $data["fada_status"] = $this->inventory->get_count_by_status(4);
         }
 
-        if ($_SESSION["role_id"] == ROLE_OPERATOR) {
-            $data["is_dashboard"] = true;
-        }
-
         $this->renderView("dashboard", "index", $data);
     }
 

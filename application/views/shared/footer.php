@@ -64,8 +64,7 @@
             "categoryAxis": {
                 "gridPosition": "start",
                 "axisAlpha": 0,
-                "gridAlpha": 0
-
+                "gridAlpha": 0 
             },
             "export": {
                 "enabled": true

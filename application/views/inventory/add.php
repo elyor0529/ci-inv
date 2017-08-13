@@ -54,6 +54,10 @@ echo form_open_multipart("inventory/save", "class='myform'");
             <label for="date">Date</label>
             <input type="date" name="date" id="date" class="form-control" required>
         </div>
+        <div class="form-group">
+            <label for="description" style="margin-top: 13px;">Description</label>
+            <textarea type="text" rows="2" name="description" id="description" class="form-control" palceholder="description..."></textarea>
+        </div>
         <input type="submit" name="save" class="btn btn-primary btn_style" onclick="addAlert()" value="Save"/>
     </div>
 </div>

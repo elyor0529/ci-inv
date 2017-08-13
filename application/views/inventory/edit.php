@@ -1,5 +1,6 @@
 <?php
 echo form_open_multipart("inventory/update", "class='form-inline myform'");
+$img = base_url('/assets/upload/' . $row->img);
 ?>
     <input name="id" value="<?php echo $row->id; ?>" type="hidden"/>
 
@@ -9,6 +10,10 @@ echo form_open_multipart("inventory/update", "class='form-inline myform'");
                 <label for="img" style="margin-top: 10px;">Image</label>
                 <input type="file" accept="image/*" class="form-control-file" name="file" id="file" aria-describedby="fileHelp">
                 <small id="fileHelp" class="form-text text-muted">JPG,PNG and JPEG.</small>
+                <br>
+                <a href="<?php echo $img; ?>" target="_blank">
+                    <image width="80" height="60" class="img-rounded" src="<?php echo $img; ?>"/>
+                </a>
             </div>
             <div class="form-group">
                 <label for="type_id">Type</label>
@@ -70,10 +75,15 @@ echo form_open_multipart("inventory/update", "class='form-inline myform'");
                     ?>
                 </select>
             </div>
+
             <div class="form-group">
                 <label for="date">Date</label>
                 <input type="date" name="date" id="date" class="form-control" value="<?php echo $row->date; ?>"
                        required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" rows="2" name="description" id="description" class="form-control" value="<?php echo $row->description; ?>">
             </div>
             <input type="submit" name="edit" class="btn btn-primary btn_style" value="Update"/>
 
