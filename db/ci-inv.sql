@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 07, 2017 at 10:17 PM
+-- Generation Time: Aug 13, 2017 at 12:30 PM
 -- Server version: 10.1.22-MariaDB
 -- PHP Version: 7.0.18
 
@@ -38,6 +38,7 @@ CREATE TABLE `inventories` (
   `location` varchar(250) NOT NULL,
   `size` varchar(250) NOT NULL,
   `status_id` int(11) NOT NULL,
+  `description` text NOT NULL,
   `date` date NOT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -46,9 +47,23 @@ CREATE TABLE `inventories` (
 -- Dumping data for table `inventories`
 --
 
-INSERT INTO `inventories` (`img`, `id`, `type_id`, `name`, `quantity`, `serial_number`, `location`, `size`, `status_id`, `date`, `user_id`) VALUES
-('code.jpg', 86, 1, 'Samsung', '20', 'DXBJUMTV234653', 'Al Naseem', '72', 3, '2016-03-17', 39),
-('code2.jpg', 87, 3, 'ThinkPad', '35', 'DXBJUMBAA6543', 'Al Qasr', '15', 2, '2017-06-18', 47);
+INSERT INTO `inventories` (`img`, `id`, `type_id`, `name`, `quantity`, `serial_number`, `location`, `size`, `status_id`, `description`, `date`, `user_id`) VALUES
+('dream.jpg', 87, 3, 'ThinkPad', '35', 'DXBJUMBAA6543', 'Al Qasr Store', '15', 2, 'data 2222', '2017-06-18', 47),
+('jumeirah.jpg', 88, 4, 'Blackberry', '41', 'DXBMJ2345RST', 'Etisalat Store', '4', 3, '', '2017-06-06', 39),
+('web.jpg', 89, 2, 'Tendo', '29', 'DXBMJ767679887', 'Al Qasr Store', '0', 4, '', '2017-08-16', 39),
+('design.jpg', 90, 3, 'ThinkPad', '34', 'DXBMJ432788FG', 'Al Naseem', '15', 3, '', '2017-08-07', 47),
+('uzb.jpg', 91, 4, 'blackberry classic', '26', 'DXBMJ27834678MB', 'Al Qasr Store', '5', 3, '', '2017-08-01', 47),
+('50px-Question_book-new.png', 92, 1, 'Hisenese', '26', 'DXBJUMMJ239807403', 'Etisalat Store', '72', 3, '', '2017-08-15', 47),
+('13767658_555089624616076_1458642867_n.jpg', 93, 6, 'MicrosoftR2', '10', 'JUMMJDXB21321', 'Al Naseem', '0', 4, '', '2015-03-21', 47),
+('dream.jpg', 94, 3, 'ThinkPad', '10', 'DXBJUMMJ21634', 'Al Qasr Store', '15', 2, 'hello from data', '2017-08-07', 47),
+('code.jpg', 95, 4, 'blackberry Android', '17', 'DXBANDBLAC89009', 'Al Qasr Store', '5', 3, '', '2017-07-30', 47),
+('dubai.jpg', 96, 2, 'TP-link', '14', 'DXBJUMBAA65343', 'Al Qasr Store', '0', 2, 'this from databse', '2017-08-06', 39),
+('<p>You did not select a file to upload.</p>', 98, 2, 'Etisalat', '22', 'dxbjumjahsdjh', 'Al Qasr Store', '0', 3, '', '2016-01-01', 39),
+('<p>You did not select a file to upload.</p>', 99, 4, 'Android', '9', 'DXBANDBLAC890093', 'Etisalat Store', '4', 2, '', '2016-10-25', 39),
+('hobby.jpg', 100, 3, 'Thinkpad45', '29', 'JUMMJ702345', 'Etisalat Store', '15', 3, '', '2017-03-09', 39),
+('<p>You did not select a file to upload.</p>', 101, 1, 'Samsung', '23', 'JUMMJDBB4532', 'Al Qasr Store', '43', 4, '', '2015-02-07', 39),
+('<p>You did not select a file to upload.</p>', 104, 1, 'ads', '324', 'DXBJUMBAA65343555', 'Al Naseem', '1', 2, 'this item has faulty microchip', '2017-08-29', 39),
+('<p>You did not select a file to upload.</p>', 105, 3, 'iMac', '25', 'DXBJUMMJ434354', 'Etisalat Store', '27', 3, 'iMac brand New', '2017-08-16', 39);
 
 -- --------------------------------------------------------
 
@@ -137,7 +152,8 @@ INSERT INTO `users` (`id`, `full_name`, `username`, `password`, `email`, `is_act
 (38, 'Samandar Mirzaev', 'samandarmirzayev@gmail.com', 'admin', 'samandarmirzayev@gmail.com', 1, 1),
 (39, 'User_jum', 'user', '1234', 'user@ex.com', 1, 2),
 (45, 'Operator_FK', 'operator@jumeirah.com', 'fk', 'operator@jumeirah.com', 1, 3),
-(47, 'Elyor Latipov', 'elyor.blog@gmail.com', '12345', 'elyor.blog@gmail.com', 1, 2);
+(47, 'Elyor Latipov', 'elyor.blog@gmail.com', '12345', 'elyor.blog@gmail.com', 1, 2),
+(49, 'Sam Mirzaev', 'samicmirzayev@gmail.com', 'user', 'samicmirzayev@gmail.com', 1, 2);
 
 --
 -- Indexes for dumped tables
@@ -185,7 +201,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `inventories`
 --
 ALTER TABLE `inventories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
 --
 -- AUTO_INCREMENT for table `inventory_status`
 --
@@ -195,7 +211,7 @@ ALTER TABLE `inventory_status`
 -- AUTO_INCREMENT for table `inventory_types`
 --
 ALTER TABLE `inventory_types`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `roles`
 --
@@ -205,7 +221,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;COMMIT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
