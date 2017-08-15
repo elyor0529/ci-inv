@@ -1,5 +1,6 @@
+<div class="profile_bg">
 <?php
-echo form_open("dashboard/profile_update", "class='myform' style=\"width:40% !important;\"");
+echo form_open("dashboard/profile_update", "class='myform' style=\"width:40% !important; margin:20px; padding:20px; color:#fff;\"");
 ?>
 
     <label for="full_name" class="col-form-label">Full Name</label>
@@ -15,3 +16,6 @@ echo form_open("dashboard/profile_update", "class='myform' style=\"width:40% !im
 <?php
 echo form_close();
 ?>
+
+<div class="pull-right avatar" style=""><img src="<?php echo base_url("/assets/") ?>favicon/logo%202.png" width="100px"></div>
+</div>

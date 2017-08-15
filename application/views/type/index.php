@@ -1,8 +1,9 @@
+<div class="type">
 <form class="form-inline">
     <a href="<?php echo site_url('type/add'); ?>" class="btn btn-primary glyphicon glyphicon-plus"
        aria-hidden="true"></span>Add</a>
 </form>
-<table class="table table-inverse" style="width: 50%">
+<table class="table table-inverse" style="width: 50%;">
     <thead>
     <tr>
         <th>Name</th>
@@ -23,3 +24,4 @@
     <?php } ?>
     </tbody>
 </table>
+</div>

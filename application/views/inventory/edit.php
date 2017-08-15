@@ -1,15 +1,15 @@
 <?php
-echo form_open_multipart("inventory/update", "class='form-inline myform'");
+echo form_open_multipart("inventory/update", "class='form-inline myform inv_bg'");
 $img = base_url('/assets/upload/' . $row->img);
 ?>
     <input name="id" value="<?php echo $row->id; ?>" type="hidden"/>
 
     <div class="row">
         <div class="col-md-6 col-lg-6 col-md-offset-3">
-            <div class="form-group">
-                <label for="img" style="margin-top: 10px;">Image</label>
-                <input type="file" accept="image/*" class="form-control-file" name="file" id="file" aria-describedby="fileHelp">
-                <small id="fileHelp" class="form-text text-muted">JPG,PNG and JPEG.</small>
+            <div class="form-group pull-left">
+                <label for="img" >Image</label>
+                <input type="file" accept="image/*" class="form-control-file" name="file" id="file" aria-describedby="fileHelp" >
+                <small id="fileHelp" class="form-text text-danger">JPG,PNG and JPEG.</small>
                 <br>
                 <a href="<?php echo $img; ?>" target="_blank">
                     <image width="80" height="60" class="img-rounded" src="<?php echo $img; ?>"/>

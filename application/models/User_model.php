@@ -27,7 +27,7 @@ class User_model extends CI_Model
         $this->db->where("username", $username);
         $this->db->where("password", $password);
 
-        return $this->db->get(SELF::ENT_NAME)->result()[0]; 
+        return $this->db->get(SELF::ENT_NAME)->result()[0];
     }
 
     public function get_entities()
@@ -69,7 +69,7 @@ class User_model extends CI_Model
         $this->username = $this->email;
         $this->password = $_REQUEST["password"];
         $this->role_id = $_SESSION["role_id"];
-
+        $this->is_active = true;
         $this->db->where("id", $id);
         $this->db->update(SELF::ENT_NAME, $this);
     }

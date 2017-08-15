@@ -152,9 +152,107 @@
             height: 500px;
         }
 
-.amcharts-chart-div a {
-	display:none !important;
-}
+        .amcharts-chart-div a {
+	         display:none !important;
+        }
+
+        .admin_img img
+        {
+            -webkit-box-shadow: 12px 25px 20px #777;
+            -moz-box-shadow: 12px 25px 20px #777;
+            box-shadow: 12px 25px 20px #777;
+            -webkit-transform: rotate(0deg);
+            -moz-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+            transform: rotate(0deg);
+            margin-bottom: 40px;
+        }
+        .avatar{
+            margin-top:-260px;
+            position: relative;
+            left:-40%;
+            border-radius:50%;
+            background-color:transparent;
+            -webkit-box-shadow: -2px 6px 42px 9px rgba(0,0,0,0.95);
+            -moz-box-shadow: -2px 6px 42px 9px rgba(0,0,0,0.95);
+            box-shadow: -2px 6px 42px 9px rgba(0,0,0,0.95);
+        }
+        .profile_bg{
+            background-image:  url("<?php echo base_url("assets/") ?>favicon/profile.jpg");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            -webkit-box-shadow: 12px 15px 20px rgba(0,0,0,0.75);
+            -moz-box-shadow: 12px 15px 20px rgba(0,0,0,0.75);
+            box-shadow: 12px 15px 20px rgba(0,0,0,0.75);
+            border-radius: 10px;
+        }
+        .type{
+            font-style: italic;
+            color:#faf2cc;
+            font-size: medium;
+            font-weight: bold;
+            background: url("<?php echo base_url("assets/") ?>favicon/it.jpg");
+            background-position: right;
+            background-repeat: no-repeat;
+            width:60%;
+            -webkit-box-shadow: 12px 15px 20px rgba(0,0,0,0.75);
+            -moz-box-shadow: 12px 15px 20px rgba(0,0,0,0.75);
+            box-shadow: 12px 15px 20px rgba(0,0,0,0.75);
+            border-radius: 10px;
+
+        }
+        .type_add{
+            margin:20px;
+            color:#fff;
+            background: url("<?php echo base_url("assets/") ?>favicon/madinat.jpg");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            width:50%;
+            -webkit-box-shadow: 12px 15px 20px rgba(0,0,0,0.75);
+            -moz-box-shadow: 12px 15px 20px rgba(0,0,0,0.75);
+            box-shadow: 12px 15px 20px rgba(0,0,0,0.75);
+            border-radius: 10px;
+        }
+        .type_edit{
+            margin:20px;
+            color:#fff;
+            background: url("<?php echo base_url("assets/") ?>favicon/it2.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            width:50%;
+            -webkit-box-shadow: 12px 15px 20px rgba(0,0,0,0.75);
+            -moz-box-shadow: 12px 15px 20px rgba(0,0,0,0.75);
+            box-shadow: 12px 15px 20px rgba(0,0,0,0.75);
+            border-radius: 10px;
+        }
+        .inv_bg{
+            background: rgba(74,74,74,1);
+            background: -moz-linear-gradient(left, rgba(74,74,74,1) 0%, rgba(97,97,97,0.76) 25%, rgba(53,53,53,0.36) 67%, rgba(28,28,28,0.36) 91%, rgba(18,18,18,0.36) 100%);
+            background: -webkit-gradient(left top, right top, color-stop(0%, rgba(74,74,74,1)), color-stop(25%, rgba(97,97,97,0.76)), color-stop(67%, rgba(53,53,53,0.36)), color-stop(91%, rgba(28,28,28,0.36)), color-stop(100%, rgba(18,18,18,0.36)));
+            background: -webkit-linear-gradient(left, rgba(74,74,74,1) 0%, rgba(97,97,97,0.76) 25%, rgba(53,53,53,0.36) 67%, rgba(28,28,28,0.36) 91%, rgba(18,18,18,0.36) 100%);
+            background: -o-linear-gradient(left, rgba(74,74,74,1) 0%, rgba(97,97,97,0.76) 25%, rgba(53,53,53,0.36) 67%, rgba(28,28,28,0.36) 91%, rgba(18,18,18,0.36) 100%);
+            background: -ms-linear-gradient(left, rgba(74,74,74,1) 0%, rgba(97,97,97,0.76) 25%, rgba(53,53,53,0.36) 67%, rgba(28,28,28,0.36) 91%, rgba(18,18,18,0.36) 100%);
+            background: linear-gradient(to right, rgba(74,74,74,1) 0%, rgba(97,97,97,0.76) 25%, rgba(53,53,53,0.36) 67%, rgba(28,28,28,0.36) 91%, rgba(18,18,18,0.36) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4a4a4a', endColorstr='#121212', GradientType=1 );
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            -webkit-box-shadow: 12px 15px 20px rgba(0,0,0,0.75);
+            -moz-box-shadow: 12px 15px 20px rgba(0,0,0,0.75);
+            box-shadow: 12px 15px 20px rgba(0,0,0,0.75);
+            border-radius: 10px;
+            margin-bottom: 50px;
+        }
+        .img-rounded{
+            -webkit-box-shadow: 2px 5px 10px rgba(0,0,0,0.75);
+            -moz-box-shadow: 2px 5px 10px rgba(0,0,0,0.75);
+            box-shadow: 2px 5px 10px rgba(0,0,0,0.75);
+            border-radius: 10px;
+        }
 
 
 

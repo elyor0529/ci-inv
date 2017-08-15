@@ -1,5 +1,5 @@
 <?php
-echo form_open_multipart("inventory/save", "class='myform'");
+echo form_open_multipart("inventory/save", "class='myform inv_bg'");
 ?>
 <div class="row form-inline">
     <div class="col-md-6 col-lg-6 col-md-offset-3">

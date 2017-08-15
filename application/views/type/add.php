@@ -1,8 +1,8 @@
 <?php
-echo form_open("type/save", "class='myform' style=\"width:30% !important;\"");
+echo form_open("type/save", "class='myform type_add' style=\"width:30% !important;\"");
 ?>
-<div class="form-inline">
-    <label for="name">Name</label>
+<div class="form-inline" >
+    <label for="name" style="margin:20px;">Name</label>
     <input type="text" class="form-control" name="name" id="name" required>
 </div>
 <p style="margin-top:20px; text-align:left; margin-right: 7%;">

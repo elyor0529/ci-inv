@@ -20,6 +20,7 @@
             background-image: url("<?php echo base_url("assets/") ?>favicon/mj1.jpg");
             background-repeat: repeat;
             background-size: cover;
+
         }
 
         .container {
@@ -28,11 +29,11 @@
             margin-top: 100px;
             box-sizing: border-box;
             display: block;
-            box-shadow: 3px 4px 0px rgba(0, 0, 0, .3),
-            0px 6px 9px rgba(0, 0, 0, .5),
-            8px 0px 4px rgba(0, 0, 0, .5),
-            0px 8px 8px rgba(0, 0, 0, .5),
-            9px 0px 7px rgba(0, 0, 0, .5);
+            box-shadow: 3px 4px 10px rgba(0, 0, 0, .3),
+            0px 6px 9px rgba(0, 0, 0, .3),
+            8px 0px 4px rgba(0, 0, 0, .3),
+            0px 8px 8px rgba(0, 0, 0, .3),
+            9px 0px 5px rgba(0, 0, 0, .3);
         }
 
         .form-signin-heading,
@@ -71,7 +72,7 @@
                autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+        <button class="btn btn-lg btn-primary  btn-block" type="submit">Login</button>
 
     </form>
 
