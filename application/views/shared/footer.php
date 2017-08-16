@@ -232,6 +232,9 @@ $('a[title="JavaScript charts"]').css('display', 'none');
             footers: false,
             formats: ['xlsx', 'csv']
         });
+        setTimeout(function () {
+        $("#flash-message").fadeOut("slow");
+        }, 2000);
 
     });
 
@@ -239,3 +242,5 @@ $('a[title="JavaScript charts"]').css('display', 'none');
 
 </body>
 </html>
+
+
