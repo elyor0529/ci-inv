@@ -168,11 +168,32 @@ class Inventory_model extends CI_Model
 
         $this->set_current_user();
 
+        /*
+         * left bar page categories
+         * */
+
+        //status
+        $status = array_key_exists("status", $_GET) ? $_GET["status"] : "";
+        if (isset($status) && strlen(trim($status)) > 0 && is_numeric(trim($status))) {
+            $this->db->where('status_id', $status);
+        }
+
+        //type
+        $type = array_key_exists("type", $_GET) ? $_GET["type"] : "";
+        if (isset($type) && strlen(trim($type)) > 0 && is_numeric(trim($type))) {
+            $this->db->where('type_id', $type);
+        }
+
+        /*
+         * general search fields:
+        */
+
+        //locations
         $location = array_key_exists("location", $_GET) ? $_GET["location"] : "";
         if (isset($location) && strlen(trim($location)) > 0) {
             $this->db->where('location', $location);
         }
-
+        //query
         $q = array_key_exists("q", $_GET) ? $_GET["q"] : "";
         if (isset($q) && strlen(trim($q)) > 0) {
             $this->db->like('name', $q);
@@ -180,6 +201,7 @@ class Inventory_model extends CI_Model
             $this->db->or_like('size', $q);
             $this->db->or_like('quantity', $q);
             $this->db->or_like('serial_number', $q);
+
         }
 
     }

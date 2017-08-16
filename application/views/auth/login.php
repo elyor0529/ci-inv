@@ -58,9 +58,7 @@
 
         <?php if (isset($_SESSION["error"])) { ?>
             <div class="alert alert-danger alert-dismissible fade in" role=alert>
-                <button type=button class=close data-dismiss=alert aria-label=Close><span
-                            aria-hidden=true>&times;</span>
-                </button>
+                <button type=button class=close data-dismiss=alert aria-label=Close><span aria-hidden=true>&times;</span></button>
                 <?php
                 echo $this->session->flashdata("error");
                 ?>
@@ -68,8 +66,7 @@
         <?php } ?>
 
         <label for="inputText" class="sr-only user">Username</label>
-        <input type="text" name="username" id="inputText" class="form-control user" placeholder="Username" required
-               autofocus>
+        <input type="text" name="username" id="inputText" class="form-control user" placeholder="Username" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
         <button class="btn btn-lg btn-primary  btn-block" type="submit">Login</button>

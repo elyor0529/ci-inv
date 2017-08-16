@@ -233,10 +233,6 @@ $('a[title="JavaScript charts"]').css('display', 'none');
             formats: ['xlsx', 'csv']
         });
 
-        setTimeout(function () {
-            $("#flash-message").fadeOut("slow");
-        }, 3000);
-
     });
 
 </script>

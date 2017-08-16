@@ -193,9 +193,10 @@
             color:#faf2cc;
             font-size: medium;
             font-weight: bold;
-            background: url("<?php echo base_url("assets/") ?>favicon/it.jpg");
-            background-position: right;
+            background: url("<?php echo base_url("assets/") ?>favicon/it2.jpg");
+            background-position: center;
             background-repeat: no-repeat;
+            background-size: cover;
             width:60%;
             -webkit-box-shadow: 12px 15px 20px rgba(0,0,0,0.75);
             -moz-box-shadow: 12px 15px 20px rgba(0,0,0,0.75);

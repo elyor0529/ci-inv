@@ -1,4 +1,6 @@
 <form class="navbar-form" role="search" action="" method="get" style="float:right;">
+    <input type="hidden" name="status" value="<?php echo isset($status) ? $status : ""; ?>">
+    <input type="hidden" name="type" value="<?php echo isset($type) ? $type : ""; ?>">
     <div class="input-group">
         <input type="text" class="form-control" placeholder="Search" name="q" size="15px; ">
         <div class="input-group-btn" style="margin-top:30px;">
@@ -9,7 +11,7 @@
     <select class="form-control pull-left" id="location" name="location" style="margin-right: 20px;">
         <option value="">-- All --</option>
         <?php foreach ($locations as $row) { ?>
-            <option value="<?php echo $row->location ?>"<?php echo  $row->location==(array_key_exists("location", $_GET)? $_GET["location"]:"") ?"selected":""; ?>><?php echo $row->location ?></option>
+            <option value="<?php echo $row->location ?>"<?php echo $row->location == (array_key_exists("location", $_GET) ? $_GET["location"] : "") ? "selected" : ""; ?>><?php echo $row->location ?></option>
         <?php } ?>
     </select>
 </form>

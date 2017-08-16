@@ -50,9 +50,7 @@ class User_model extends CI_Model
     public function get_entity($id)
     {
         $this->db->where('id', $id);
-        $rows = $this->db->get(SELF::ENT_NAME)->result();
-
-        return $rows[0];
+        return $this->db->get(SELF::ENT_NAME)->result()[0];
     }
 
     public function delete_entity($id)

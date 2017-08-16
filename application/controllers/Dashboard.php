@@ -67,7 +67,7 @@ class Dashboard extends \core\MY_Controller
         if (isset($_REQUEST["status"])) {
             $status = $this->inventorystatus->get_entity($_REQUEST["status"]);
             $data["title"] = "Report by status '" . $status->name . "'";
-
+            $data["status"] = $_REQUEST["status"];
             $config['base_url'] = base_url() . 'dashboard/report?status=' . $status->id;
             $config['total_rows'] = $this->inventory->filter_status_records($status->id);
             $config['per_page'] = 10;
@@ -94,10 +94,11 @@ class Dashboard extends \core\MY_Controller
             $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
             $data["pager"] = $this->pagination->create_links();
             $data['results'] = $this->inventory->get_entities_by_status($config["per_page"], $page, $status->id);
+
         } elseif (isset($_REQUEST["type"])) {
             $type = $this->inventorytype->get_entity($_REQUEST["type"]);
             $data["title"] = "Report by type '" . $type->name . "'";
-
+            $data["type"] = $_REQUEST["type"];
             $config['base_url'] = base_url() . 'dashboard/report?type=' . $type->id;
             $config['total_rows'] = $this->inventory->filter_type_records($type->id);
             $config['per_page'] = 10;
@@ -124,6 +125,7 @@ class Dashboard extends \core\MY_Controller
             $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
             $data["pager"] = $this->pagination->create_links();
             $data['results'] = $this->inventory->get_entities_by_type($config["per_page"], $page, $type->id);
+
         } else {
             $data["title"] = "All report";
 
@@ -167,8 +169,6 @@ class Dashboard extends \core\MY_Controller
         header("Content-Type: application/json");
         $result = $this->inventory->get_monitoring();
         $json = json_encode($result);
-
-        echo $json;
 
         return $json;
     }

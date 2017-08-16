@@ -15,7 +15,7 @@ class Type extends \core\MY_Controller
     {
         $data['title'] = "Add Type";
 
-        $this->session->set_flashdata('warning', 'Please enter required fields...');
+       // $this->session->set_flashdata('warning', 'Please enter required fields...');
         $this->renderView("type", "add", $data);
     }
 
@@ -45,7 +45,7 @@ class Type extends \core\MY_Controller
         $data['title'] = "Edit Items";
         $data["row"] = $this->inventorytype->get_entity($id);
 
-        $this->session->set_flashdata('success', 'Edited successfully ...');
+
         $this->renderView("type", "edit", $data);
     }
 
@@ -57,7 +57,7 @@ class Type extends \core\MY_Controller
         if (isset($_REQUEST['edit'])) {
 
             $this->inventorytype->update_entity($id);
-
+            $this->session->set_flashdata('success', 'Edited successfully ...');
             redirect("type/index");
         } else {
 
