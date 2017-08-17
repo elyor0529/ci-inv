@@ -30,13 +30,13 @@
         var chart = AmCharts.makeChart("chartdiv", {
             "theme": "light",
             "type": "serial",
-	    "titles": [
-		{
-			"text": "Inventory by locations",
-			"size": 24,
-			"color":"#777"
-		}
-	    ],
+            "titles": [
+                {
+                    "text": "Inventory by locations",
+                    "size": 24,
+                    "color": "#777"
+                }
+            ],
             "startDuration": 2,
             "dataProvider": [],
             "valueAxes": [{
@@ -64,7 +64,7 @@
             "categoryAxis": {
                 "gridPosition": "start",
                 "axisAlpha": 0,
-                "gridAlpha": 0 
+                "gridAlpha": 0
             },
             "export": {
                 "enabled": true
@@ -126,12 +126,12 @@
 
         }, ["serial"]);
 
-  $(function () {
- 
-$('a[title="Interactive JavaScript maps"]').css('display', 'none'); 
-$('a[title="JavaScript charts"]').css('display', 'none');
+        $(function () {
 
-    });
+            $('a[title="Interactive JavaScript maps"]').css('display', 'none');
+            $('a[title="JavaScript charts"]').css('display', 'none');
+
+        });
 
         function getRandomInt(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -232,9 +232,10 @@ $('a[title="JavaScript charts"]').css('display', 'none');
             footers: false,
             formats: ['xlsx', 'csv']
         });
-        setTimeout(function () {
-        $("#flash-message").fadeOut("slow");
-        }, 2000);
+
+        //     setTimeout(function () {
+        //   $("#flash-message").fadeOut("slow");
+        //  }, 2000);
 
     });
 

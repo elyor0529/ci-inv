@@ -64,12 +64,14 @@ class Dashboard extends \core\MY_Controller
 
     public function report()
     {
-        if (isset($_REQUEST["status"])) {
-            $status = $this->inventorystatus->get_entity($_REQUEST["status"]);
-            $data["title"] = "Report by status '" . $status->name . "'";
-            $data["status"] = $_REQUEST["status"];
-            $config['base_url'] = base_url() . 'dashboard/report?status=' . $status->id;
-            $config['total_rows'] = $this->inventory->filter_status_records($status->id);
+        $statusCode = array_key_exists("status", $_GET) ? $_GET["status"] : "";
+        $typeCode = array_key_exists("type", $_GET) ? $_GET["type"] : "";
+        if (isset($statusCode) && strlen(trim($statusCode)) > 0 && is_numeric(trim($statusCode))) {
+            $statusEnt = $this->inventorystatus->get_entity($statusCode);
+            $data["title"] = "Report by status '" . $statusEnt->name . "'";
+            $data["status"] = $statusCode;
+            $config['base_url'] = base_url() . 'dashboard/report?status=' . $statusEnt->id;
+            $config['total_rows'] = $this->inventory->filter_status_records($statusEnt->id);
             $config['per_page'] = 10;
             $config["uri_segment"] = 3;
             $config['full_tag_open'] = '<ul class="pagination paging-3d">';
@@ -93,14 +95,15 @@ class Dashboard extends \core\MY_Controller
             $this->pagination->initialize($config);
             $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
             $data["pager"] = $this->pagination->create_links();
-            $data['results'] = $this->inventory->get_entities_by_status($config["per_page"], $page, $status->id);
+            $data['results'] = $this->inventory->get_entities_by_status($config["per_page"], $page, $statusEnt->id);
 
-        } elseif (isset($_REQUEST["type"])) {
-            $type = $this->inventorytype->get_entity($_REQUEST["type"]);
-            $data["title"] = "Report by type '" . $type->name . "'";
-            $data["type"] = $_REQUEST["type"];
-            $config['base_url'] = base_url() . 'dashboard/report?type=' . $type->id;
-            $config['total_rows'] = $this->inventory->filter_type_records($type->id);
+        } elseif (isset($typeCode) && strlen(trim($typeCode)) > 0 && is_numeric(trim($typeCode))) {
+
+            $typeEnt = $this->inventorytype->get_entity($typeCode);
+            $data["title"] = "Report by type '" . $typeEnt->name . "'";
+            $data["type"] = $typeCode;
+            $config['base_url'] = base_url() . 'dashboard/report?type=' . $typeEnt->id;
+            $config['total_rows'] = $this->inventory->filter_type_records($typeEnt->id);
             $config['per_page'] = 10;
             $config["uri_segment"] = 3;
             $config['full_tag_open'] = '<ul class="pagination paging-3d">';
@@ -124,7 +127,7 @@ class Dashboard extends \core\MY_Controller
             $this->pagination->initialize($config);
             $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
             $data["pager"] = $this->pagination->create_links();
-            $data['results'] = $this->inventory->get_entities_by_type($config["per_page"], $page, $type->id);
+            $data['results'] = $this->inventory->get_entities_by_type($config["per_page"], $page, $typeEnt->id);
 
         } else {
             $data["title"] = "All report";
@@ -163,14 +166,14 @@ class Dashboard extends \core\MY_Controller
         $this->renderView("dashboard", "report", $data);
     }
 
-
     public function inventory_monitoring()
     {
         header("Content-Type: application/json");
         $result = $this->inventory->get_monitoring();
         $json = json_encode($result);
 
-        return $json;
+        echo $json;
     }
+
 }
 

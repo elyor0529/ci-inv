@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="<?php echo base_url("assets/") ?>css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo base_url("assets/") ?>css/bootstrap-theme.min.css">
-    <link rel="icon" type="decor  ated-typography-set-2-number-7-16-244412.png"
+    <link rel="icon" type="decorated-typography-set-2-number-7-16-244412.png"
           href="<?php echo base_url("/assets/") ?>favicon/logo%202.png">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
