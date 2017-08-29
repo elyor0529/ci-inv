@@ -173,10 +173,10 @@
             position: relative;
             left:-40%;
             border-radius:50%;
-            background-color:transparent;
-            -webkit-box-shadow: -2px 6px 42px 9px rgba(0,0,0,0.95);
-            -moz-box-shadow: -2px 6px 42px 9px rgba(0,0,0,0.95);
-            box-shadow: -2px 6px 42px 9px rgba(0,0,0,0.95);
+            background-color:#faf2cc;
+            -webkit-box-shadow: -2px 6px 42px 9px rgba(255,255,255,.95);
+            -moz-box-shadow: -2px 6px 42px 9px rgba(255,255,255,.95);
+            box-shadow: -2px 6px 42px 9px rgba(255,255,255,.95);
         }
         .profile_bg{
             background-image:  url("<?php echo base_url("assets/") ?>favicon/profile.jpg");
